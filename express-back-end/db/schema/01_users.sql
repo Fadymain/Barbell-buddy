@@ -4,6 +4,6 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  Created_Date TIMESTAMP NOT NULL Default Now(),
+  created_at TIMESTAMP NOT NULL Default Now(),
   active_user BOOLEAN DEFAULT TRUE
 );
