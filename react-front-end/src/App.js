@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-// import Login from './components/Login';
-// import Register from './views/Register';
+import Login from './components/Login';
+import Register from './views/Register';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Button from './components/Button';
 
 class App extends Component {
   constructor(props) {
@@ -33,8 +35,17 @@ class App extends Component {
         <h1>{ this.state.message }</h1>
         <button onClick={this.fetchData} >
           Fetch Data
-        </button>        
-        <Calendar/>
+        </button>    
+        <Button/>    
+        <Router>
+        <Routes>
+          <Route path="/" element={<Calendar />} />
+          {/* <Route path="/day" element={<Day />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/platecalc" element={<h2>Plate Calculator</h2>} />
+        </Routes>
+      </Router>
       </div>
     );
   }
