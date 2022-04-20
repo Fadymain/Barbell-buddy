@@ -28,15 +28,15 @@ class Register extends Component {
       <div className="Register">
         <h1>Register</h1>
         <form action="/register" method="POST">
-          <div class="form-group">
+          <div>
             <label for="email">Email address</label>
             <input type="email" class="form-control" name="email" placeholder="Enter email" />
           </div>
-          <div class="form-group">
+          <div>
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="Password" />
           </div>
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit">Register</button>
         </form>
       </div>
     );
