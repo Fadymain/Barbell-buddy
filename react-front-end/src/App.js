@@ -7,6 +7,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Button from './components/Button';
+import Day from './components/Day';
 
 class App extends Component {
   constructor(props) {
@@ -39,8 +40,8 @@ class App extends Component {
         <Button/>    
         <Router>
         <Routes>
-          <Route path="/" element={<Calendar />} />
-          {/* <Route path="/day" element={<Day />} /> */}
+          <Route path="/day" element={<Day />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/platecalc" element={<h2>Plate Calculator</h2>} />
