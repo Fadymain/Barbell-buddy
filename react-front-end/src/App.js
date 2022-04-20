@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import Login from './components/Login';
+import Register from './views/Register';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class App extends Component {
         <button onClick={this.fetchData} >
           Fetch Data
         </button>        
+        <Register/>
       </div>
     );
   }
