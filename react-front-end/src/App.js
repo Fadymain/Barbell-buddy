@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Button from './components/Button';
 import Day from './components/Day';
 import ExercisesList from './components/ExercisesList';
+import Counter from './components/Counter';
 
 class App extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class App extends Component {
         <Routes>
           <Route path="/day" element={<Day />} />
           <Route path="/exercises" element={<ExercisesList />} />
+          <Route path="/counter" element={<Counter />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
