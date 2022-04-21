@@ -6,15 +6,11 @@ function Counter(props) {
 
   return (
       <section>
-        <button>
-          Back
-        </button>
+        <button>Back</button>
 
         <h2>Deadlift</h2>
 
         <div>
-          <h3>WEIGHT (lb):</h3>
-          <h3>REPS:</h3>
           <form action="/counter" method="post">
             <div>
               <label for="weight">WEIGHT (lb):</label><br/>
@@ -29,8 +25,12 @@ function Counter(props) {
         </div>
 
         <div>
-          <h3>Completed Sets:</h3>
-          <h6>Set 1 - 20 Reps @ 45lb</h6>
+          <h3>Completed Sets</h3>
+          <ul>
+            <li>Set 3 - 20 Reps @ 135lb</li>
+            <li>Set 2 - 20 Reps @ 90lb</li>
+            <li>Set 1 - 20 Reps @ 45lb</li>
+          </ul>
           <button>Edit</button>
           <button>SAVE</button>
         </div>
