@@ -1,6 +1,4 @@
 import React from 'react';
-// import InterviewerListItem from "./InterviewerListItem"
-// import "./InterviewerList.scss"
 
 function Counter(props) {
 
@@ -27,9 +25,10 @@ function Counter(props) {
         <div>
           <h3>Completed Sets</h3>
           <ul>
-            <li>Set 3 - 20 Reps @ 135lb</li>
-            <li>Set 2 - 20 Reps @ 90lb</li>
             <li>Set 1 - 20 Reps @ 45lb</li>
+            <li>Set 2 - 15 Reps @ 90lb</li>
+            <li>Set 3 - 10 Reps @ 115lb</li>
+            <li>Set 4 - 10 Reps @ 135lb</li>
           </ul>
           <button>Edit</button>
           <button>SAVE</button>
