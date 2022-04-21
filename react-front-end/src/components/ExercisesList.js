@@ -6,16 +6,18 @@ function ExercisesList(props) {
 
   return (
       <section>
-        <button>Back</button>
+        <button>Back</button><br/>
         <h1>Select Exercise:</h1>
-        <h2>Deadlift</h2>
-        <h2>Squats</h2>
-        <h2>Bench Press</h2>
-        <h2>Lunges</h2>
-        <h2>Overhead Press</h2>
+        <div className='exerciselist'>
+          <button>Deadlift</button><br/>
+          <button>Squats</button><br/>
+          <button>Bench Press</button><br/>
+          <button>Lunges</button><br/>
+          <button>Overhead Press</button>
+        </div>
         <div>
           <button>+</button>
-          <h3>ADD EXERCISE</h3>
+          <h4>ADD EXERCISE</h4>
         </div>
       </section>
   );
