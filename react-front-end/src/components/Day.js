@@ -1,6 +1,4 @@
 import React from 'react';
-// import InterviewerListItem from "./InterviewerListItem"
-// import "./InterviewerList.scss"
 
 function Day(props) {
 

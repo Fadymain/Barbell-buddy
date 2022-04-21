@@ -18,7 +18,7 @@ function Counter(props) {
               <label for="reps">REPS:</label><br/>
               <input type="text" id="reps" name="reps"/>
             </div>
-            <input type="submit" value="SET COMPLETED"/>
+            <input onClick={() => console.log("counter button was clicked")} type="submit" value="SET COMPLETED"/>
           </form>
         </div>
 
