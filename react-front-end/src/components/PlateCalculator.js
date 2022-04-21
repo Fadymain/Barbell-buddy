@@ -1,6 +1,16 @@
 import React from 'react';
+import plateCalculator from 'plate-calculator';
+
+
 
 function PlateCalculator(props) {
+
+  console.log("plateCalculator::", plateCalculator);
+  console.log(plateCalculator.calculate(200));
+  const plateCalc = plateCalculator.calculate(200);
+  const plateWeight = plateCalc.plates[0].plateWeight;
+  const plateQty = plateCalc.plates[0].qty / 2;
+  const closest = plateCalc.closestWeight;
 
   return (
       <section>
@@ -19,8 +29,9 @@ function PlateCalculator(props) {
         </div>
 
         <div>
-          <h3>Plate Weight</h3>
-          <h3>Plates/Side</h3>
+        <h2>Closest weight: {closest}</h2>   
+        <h2>Plate Weight: {plateWeight}</h2>   
+        <h2>Plates/side: {plateQty}</h2>   
         </div>
       </section>
   );
