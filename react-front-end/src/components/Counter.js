@@ -1,6 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
+
 
 function Counter(props) {
+  const {rep, setRep} = useState(0);
+  const {weight, setWeight} = useState(0);
+
+  const addWeight = function () {
+
+  }
+
+  const addRep = function () {
+    
+  }
+  
+
+  const completedSet = props.exercises.map((listItem, index) => {
+    return (<li key={listItem.id} >{`set ${index + 1} - ${}`}</li>)
+  })
 
   return (
       <section>
@@ -9,13 +25,13 @@ function Counter(props) {
         <h2>Deadlift</h2>
 
         <div>
-          <form action="/counter" method="post">
+          <form autoComplete='off' onSubmit={event => event.preventDefault()}>
             <div>
-              <label for="weight">WEIGHT (lb):</label><br/>
+              <label htmlFor="weight">WEIGHT (lb):</label><br/>
               <input type="text" id="weight" name="weight"/>
             </div>
             <div>
-              <label for="reps">REPS:</label><br/>
+              <label htmlFor="reps">REPS:</label><br/>
               <input type="text" id="reps" name="reps"/>
             </div>
             <input onClick={() => console.log("counter button was clicked")} type="submit" value="SET COMPLETED"/>
