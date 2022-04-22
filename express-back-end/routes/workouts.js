@@ -8,7 +8,7 @@ module.exports = (db) => {
       .then(data => {
         const allWorkouts = data.rows;
         console.log("all workouts", allWorkouts);
-        res.json({ allWorkouts: allExercises });
+        res.json({ allWorkouts: allWorkouts });
       })
       .catch(err => {
         res
@@ -23,7 +23,7 @@ module.exports = (db) => {
       .then(data => {
         const currentWorkout = data.rows;
         console.log("currentWorkout: ", currentWorkout);
-        res.json({ currentWorkout: currentExercise });
+        res.json({ currentWorkout: currentWorkout });
       })
       .catch(err => {
         res
