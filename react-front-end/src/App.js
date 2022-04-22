@@ -6,7 +6,6 @@ import Register from './views/Register';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Button from './components/Button';
 import Day from './components/Day';
 import DayEmpty from './components/DayEmpty';
 import ExercisesList from './components/ExercisesList';
