@@ -7,7 +7,7 @@ function CalendarPage() {
   return (
       <section>
         <Calendar/>
-        <button >SELECT DATE</button>
+        <button href="/calendar" >SELECT DATE</button>
       </section>
   );
 
