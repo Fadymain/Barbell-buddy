@@ -3,8 +3,7 @@ import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import OpeningPage from './components/OpeningScreen';
 import Login from './components/Login';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import CalendarPage from './components/CalendarPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Day from './components/Day';
 import DayEmpty from './components/DayEmpty';
@@ -44,7 +43,7 @@ const App = () => {
           <Route path="/dayempty" element={<DayEmpty />} />
           <Route path="/exercises" element={<ExercisesList />} />
           <Route path="/counter" element={<Counter />} />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/" element={<Login />} />
           <Route path="/platecalc" element={<PlateCalculator />} />
         </Routes>

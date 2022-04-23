@@ -3,16 +3,7 @@ import React, { Component } from 'react';
 // import './App.css';
 
 const Login = () => {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     message: 'Click the button to load data!'
-  //   }
-  // }
 
-  
-
-  
     return (
       <div className="Login">
         <h1>Login</h1>
