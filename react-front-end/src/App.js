@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import Login from './components/Login';
-import Register from './views/Register';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -51,7 +50,6 @@ const App = () => {
           <Route path="/counter" element={<Counter />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/platecalc" element={<PlateCalculator />} />
         </Routes>
       </Router>
