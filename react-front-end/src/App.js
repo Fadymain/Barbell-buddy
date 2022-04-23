@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
+import OpeningPage from './components/OpeningScreen';
 import Login from './components/Login';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -10,12 +11,11 @@ import DayEmpty from './components/DayEmpty';
 import ExercisesList from './components/ExercisesList';
 import Counter from './components/Counter';
 import PlateCalculator from './components/PlateCalculator';
+import OpeningScreen from './components/OpeningScreen';
 
 const App = () => {
 
   const {state} = useApplicationData();
-
-
 
   // fetchData = () => {
   //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
@@ -30,11 +30,6 @@ const App = () => {
   //   }) 
   // }
 
-  
-
-
-
-
   return (
     <div className="App">
       <h1>{"its working"}</h1>
@@ -44,6 +39,7 @@ const App = () => {
       {/* <Button/>     */}
       <Router>
         <Routes>
+          <Route path="/opening" element={<OpeningScreen />} />
           <Route path="/day" element={<Day />} />
           <Route path="/dayempty" element={<DayEmpty />} />
           <Route path="/exercises" element={<ExercisesList />} />
@@ -56,6 +52,5 @@ const App = () => {
     </div>
   );
 }
-
 
 export default App;
