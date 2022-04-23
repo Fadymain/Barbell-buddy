@@ -1,22 +1,27 @@
 import React, {useState} from 'react';
+import CounterListItem from './CounterListItem';
 
 
 function Counter(props) {
-  const {rep, setRep} = useState(0);
-  const {weight, setWeight} = useState(0);
+  const [reps, setReps] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [completed, updateCompleted] = useState([])
 
-  const addWeight = function () {
-
+  const updateRep = function(rep, weight) {
+    debugger
+    if(!rep && !weight) {
+      return;
+    }
+    setReps(rep);
+    setWeight(weight);
   }
 
-  const addRep = function () {
-    
+  const completeSet = function(set) {
+    debugger
+    updateCompleted([...completed, set])
   }
+
   
-
-  const completedSet = props.exercises.map((listItem, index) => {
-    return (<li key={listItem.id} >{`set ${index + 1} - ${}`}</li>)
-  })
 
   return (
       <section>
@@ -28,23 +33,20 @@ function Counter(props) {
           <form autoComplete='off' onSubmit={event => event.preventDefault()}>
             <div>
               <label htmlFor="weight">WEIGHT (lb):</label><br/>
-              <input type="text" id="weight" name="weight"/>
+              <input type="text" id="weight" name="weight" onChange={(event) => updateRep(reps, event.target.value)}/>
             </div>
             <div>
               <label htmlFor="reps">REPS:</label><br/>
-              <input type="text" id="reps" name="reps"/>
+              <input type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)}/>
             </div>
-            <input onClick={() => console.log("counter button was clicked")} type="submit" value="SET COMPLETED"/>
+            <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/>
           </form>
         </div>
 
         <div>
           <h3>Completed Sets</h3>
           <ul>
-            <li>Set 1 - 20 Reps @ 45lb</li>
-            <li>Set 2 - 15 Reps @ 90lb</li>
-            <li>Set 3 - 10 Reps @ 115lb</li>
-            <li>Set 4 - 10 Reps @ 135lb</li>
+            {completed.map((set, index) => <CounterListItem  key={index} index={index + 1} rep={set.reps} weight={set.weight}/>)}
           </ul>
           <button>Edit</button>
           <button>SAVE</button>
