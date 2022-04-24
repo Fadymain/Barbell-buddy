@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import CounterListItem from './CounterListItem';
-
+import "./Counter.css"
 
 function Counter(props) {
   const [reps, setReps] = useState(0);
@@ -28,6 +28,11 @@ function Counter(props) {
         <button>Back</button>
 
         <h2>Deadlift</h2>
+        <img
+          src="images/plateCalc.png"
+          className="plateCalc"
+          alt="plateCalc"
+        />
 
         <div>
           <form autoComplete='off' onSubmit={event => event.preventDefault()}>

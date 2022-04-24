@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
-import OpeningPage from './components/OpeningScreen';
+import IntroScreen from './components/IntroScreen';
 import Login from './components/Login';
 import CalendarPage from './components/CalendarPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -10,7 +10,6 @@ import DayEmpty from './components/DayEmpty';
 import ExercisesList from './components/ExercisesList';
 import Counter from './components/Counter';
 import PlateCalculator from './components/PlateCalculator';
-import OpeningScreen from './components/OpeningScreen';
 
 const App = () => {
 
@@ -31,20 +30,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>{"its working"}</h1>
+      <h1>{"Barbell Buddy App component"}</h1>
       {/* <button onClick={this.fetchData} > */}
       {/* Fetch Data
         </button>     */}
       {/* <Button/>     */}
       <Router>
         <Routes>
-          <Route path="/opening" element={<OpeningScreen />} />
+          <Route path="/" element={<IntroScreen />} />
+          <Route path="/intro" element={<IntroScreen />} />
           <Route path="/day" element={<Day />} />
           <Route path="/dayempty" element={<DayEmpty />} />
           <Route path="/exercises" element={<ExercisesList />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/platecalc" element={<PlateCalculator />} />
         </Routes>
       </Router>

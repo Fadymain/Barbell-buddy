@@ -1,15 +1,15 @@
 import React from 'react';
-import "./OpeningScreen.css"
+import "./IntroScreen.css"
 
-function OpeningScreen() {
+function IntroScreen() {
 
   return (
       <section>
-        <h1>Barbell Buddy</h1>
+        <h1 className="intro">Barbell <br/>Buddy</h1>
         <img
           src="images/diag_blue_barbell.png"
-          className="opening"
-          alt="opening"
+          className="intro"
+          alt="intro"
         />
         <h2>WEIGHTLIFTING TRACKER</h2>
       </section>
@@ -17,4 +17,4 @@ function OpeningScreen() {
 
 }
 
-export default OpeningScreen;
+export default IntroScreen;

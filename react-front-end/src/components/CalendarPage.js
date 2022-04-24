@@ -24,7 +24,8 @@ function CalendarPage() {
     <section>
 
       <Calendar />
-      <button href="/calendar" >SELECT DATE</button>
+      {/* either on click to save date(moment.js? or just link to day page) */}
+      <button>SELECT DATE</button>
 
       <BottomNavigation
         value={value}
