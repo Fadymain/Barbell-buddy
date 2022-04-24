@@ -13,7 +13,7 @@ function Counter(props) {
   const [completed, updateCompleted] = useState([])
 
   const updateRep = function(rep, weight) {
-    debugger
+    // debugger
     if(!rep && !weight) {
       return;
     }
@@ -22,7 +22,7 @@ function Counter(props) {
   }
 
   const completeSet = function(set) {
-    debugger
+    // debugger
     updateCompleted([...completed, set])
   }
 

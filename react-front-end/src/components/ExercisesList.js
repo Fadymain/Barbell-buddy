@@ -23,10 +23,10 @@ function ExercisesList(props) {
 
       <h1>Select Exercise:</h1>
       <div className='exerciselist'>
-        {/* {excercises.map(item => <><button onClick={() => setCurrentExercise(item)}>{item}</button><br/></>)} */}
+        {excercises.map(item => <div><button onClick={() => setCurrentExercise(item)}>{item}</button></div>)}
       </div>
 
-      <div className='exerciselist'>
+      {/* <div className='exerciselist'>
         <br />
         <img
           src="images/deadlift.png"
@@ -58,7 +58,7 @@ function ExercisesList(props) {
           alt="save"
         />
         <br />
-      </div>
+      </div> */}
 
       <div>
         <img
