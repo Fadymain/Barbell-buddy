@@ -35,6 +35,7 @@ function Counter(props) {
       </Link>
 
         <h2>Deadlift</h2>
+
         <img
           src="images/plateCalc.png"
           className="plateCalc"
@@ -55,18 +56,25 @@ function Counter(props) {
           </form>
         </div>
 
-        <div>
-          <h3>Completed Sets:</h3>
-          <ul>
-            {completed.map((set, index) => <CounterListItem  key={index} index={index + 1} rep={set.reps} weight={set.weight}/>)}
-          </ul>
-          <EditSharpIcon/>
-          <div>
-            <CheckCircleIcon/>
-            SAVE
-          </div>
+      <div>
+        <h3>Completed Sets:</h3>
+        <ul>
+          {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
+        </ul>
 
-        </div>
+        <img
+          src="images/edit.png"
+          className="edit"
+          alt="edit"
+        />
+
+        <img
+          src="images/save.png"
+          className="save"
+          alt="save"
+        />
+      </div>
+
       </section>
   );
 

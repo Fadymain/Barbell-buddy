@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -10,36 +10,66 @@ import { useState } from 'react';
 const excercises = ["Deadlifts", "Squats", "Bench Press", "Lunges", "Overhead Press"];
 
 
-
 function ExercisesList(props) {
 
   const [currentExcercise, setCurrentExercise] = useState();
 
   return (
-      <section>
+    <section>
 
       <Link to="/day">
         <KeyboardBackspaceIcon />
       </Link>
 
-        <h1>Select Exercise:</h1>
-        <div className='exerciselist'>
-          {excercises.map(item => <><button onClick={() => setCurrentExercise(item)}>{item}</button><br/></>)}
-          {/* <button>Deadlift</button><br/>
-          <button>Squats</button><br/>
-          <button>Bench Press</button><br/>
-          <button>Lunges</button><br/>
-          <button>Overhead Press</button> */}
-        </div>
+      <h1>Select Exercise:</h1>
+      <div className='exerciselist'>
+        {/* {excercises.map(item => <><button onClick={() => setCurrentExercise(item)}>{item}</button><br/></>)} */}
+      </div>
+
+      <div className='exerciselist'>
+        <br />
+        <img
+          src="images/deadlift.png"
+          className="save"
+          alt="save"
+        />
+        <br />
+        <img
+          src="images/squats.png"
+          className="save"
+          alt="save"
+        />
+        <br />
+        <img
+          src="images/benchPress.png"
+          className="save"
+          alt="save"
+        />
+        <br />
+        <img
+          src="images/lunges.png"
+          className="save"
+          alt="save"
+        />
+        <br />
+        <img
+          src="images/overheadPress.png"
+          className="save"
+          alt="save"
+        />
+        <br />
+      </div>
 
       <div>
-        <Fab size="small" color="secondary" aria-label="add" >
-          <AddIcon />
-        </Fab>
+        <img
+          src="images/add50.png"
+          className="save"
+          alt="save"
+        />
         Add Exercise
       </div>
 
-      </section>
+    </section>
   );
 
 }
