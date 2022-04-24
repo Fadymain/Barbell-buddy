@@ -1,7 +1,8 @@
 import React from 'react';
 import plateCalculator from 'plate-calculator';
 
-
+import {Link} from "react-router-dom"
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
 function PlateCalculator(props) {
 
@@ -14,7 +15,9 @@ function PlateCalculator(props) {
 
   return (
       <section>
-        <button>Back</button>
+      <Link to="/counter">
+        <KeyboardBackspaceIcon />
+      </Link>
 
         <h2>Plate Calculator</h2>
 

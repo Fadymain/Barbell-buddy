@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import CounterListItem from './CounterListItem';
 import "./Counter.css"
 
+import {Link} from "react-router-dom"
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+
 function Counter(props) {
   const [reps, setReps] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -25,7 +28,9 @@ function Counter(props) {
 
   return (
       <section>
-        <button>Back</button>
+      <Link to="/exercises">
+        <KeyboardBackspaceIcon />
+      </Link>
 
         <h2>Deadlift</h2>
         <img

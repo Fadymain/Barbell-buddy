@@ -6,7 +6,6 @@ import Login from './components/Login';
 import CalendarPage from './components/CalendarPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Day from './components/Day';
-import DayEmpty from './components/DayEmpty';
 import ExercisesList from './components/ExercisesList';
 import Counter from './components/Counter';
 import PlateCalculator from './components/PlateCalculator';
@@ -40,7 +39,6 @@ const App = () => {
           <Route path="/" element={<IntroScreen />} />
           <Route path="/intro" element={<IntroScreen />} />
           <Route path="/day" element={<Day />} />
-          <Route path="/dayempty" element={<DayEmpty />} />
           <Route path="/exercises" element={<ExercisesList />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/calendar" element={<CalendarPage />} />
