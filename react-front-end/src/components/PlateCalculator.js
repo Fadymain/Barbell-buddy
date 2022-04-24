@@ -14,29 +14,36 @@ function PlateCalculator(props) {
   const closest = plateCalc.closestWeight;
 
   return (
-      <section>
+    <section>
+
       <Link to="/counter">
         <KeyboardBackspaceIcon />
       </Link>
 
-        <h2>Plate Calculator</h2>
+      <h2>Plate Calculator</h2>
 
-        <div>
-          <form action="/platecalc" method="POST">
-              <label for="weight">WEIGHT (lb):</label>
-              <input type="text" id="weight" name="weight"/>
-              <label for="barbell">BARBELL:</label>
-              <input type="text" id="barbell" name="barbell"/><br/>
-            <input type="submit" value="CALCULATE"/>
-          </form>
-        </div>
+      <div>
+        <form action="/platecalc" method="POST">
+          <label for="weight">WEIGHT (lb):</label>
+          <input type="text" id="weight" name="weight" />
+          <label for="barbell">BARBELL:</label>
+          <input type="text" id="barbell" name="barbell" /><br />
+          <img
+            onClick={() => plateCalc}
+            src="images/calculate.png"
+            className="save"
+            alt="save"
+          />
+        </form>
+      </div>
 
-        <div>
-        <h2>Closest weight: {closest}</h2>   
-        <h2>Plate Weight: {plateWeight}</h2>   
-        <h2>Plates/side: {plateQty}</h2>   
-        </div>
-      </section>
+      <div>
+        <h2>Closest weight: {closest}</h2>
+        <h2>Plate Weight: {plateWeight}</h2>
+        <h2>Plates/side: {plateQty}</h2>
+      </div>
+
+    </section>
   );
 
 }

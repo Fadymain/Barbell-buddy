@@ -15,10 +15,10 @@ function Day(props) {
   return (
       <section className="day">
 
+        {/* change onClick value */}
         <Link to="/calendar">
           <KeyboardBackspaceIcon onClick={event =>  window.location.href='/calendar'} />
         </Link>
-
 
         {/* get date from Calendar page? */}
         <h3>Thurdsday April 28th, 2022</h3>

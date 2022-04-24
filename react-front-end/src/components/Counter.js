@@ -52,7 +52,13 @@ function Counter(props) {
               <label htmlFor="reps">REPS:</label><br/>
               <input type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)}/>
             </div>
-            <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/>
+            {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
+            <img
+              onClick={() => completeSet({reps, weight})}
+              src="images/counterButton.png"
+              className="counterButton"
+              alt="counterButton"
+            />
           </form>
         </div>
 
