@@ -4,6 +4,8 @@ import "./Counter.css"
 
 import {Link} from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import EditSharpIcon from '@material-ui/icons/EditSharp';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 function Counter(props) {
   const [reps, setReps] = useState(0);
@@ -42,7 +44,7 @@ function Counter(props) {
         <div>
           <form autoComplete='off' onSubmit={event => event.preventDefault()}>
             <div>
-              <label htmlFor="weight">WEIGHT (lb):</label><br/>
+              <label htmlFor="weight">WEIGHT (lbs):</label><br/>
               <input type="text" id="weight" name="weight" onChange={(event) => updateRep(reps, event.target.value)}/>
             </div>
             <div>
@@ -54,12 +56,16 @@ function Counter(props) {
         </div>
 
         <div>
-          <h3>Completed Sets</h3>
+          <h3>Completed Sets:</h3>
           <ul>
             {completed.map((set, index) => <CounterListItem  key={index} index={index + 1} rep={set.reps} weight={set.weight}/>)}
           </ul>
-          <button>Edit</button>
-          <button>SAVE</button>
+          <EditSharpIcon/>
+          <div>
+            <CheckCircleIcon/>
+            SAVE
+          </div>
+
         </div>
       </section>
   );
