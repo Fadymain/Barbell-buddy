@@ -10,6 +10,7 @@ import ExercisesList from './components/ExercisesList';
 import Counter from './components/Counter';
 import PlateCalculator from './components/PlateCalculator';
 import ExerciseContext from './components/ExerciseContext';
+import Nav from './components/Nav';
 
 const exercisesData = [
   { type: "Deadlifts", id: 1},
@@ -39,7 +40,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>{"Barbell Buddy App component"}</h1>
+      {/* <h1>{"Barbell Buddy App component"}</h1> */}
       {/* <button onClick={this.fetchData} > */}
       {/* Fetch Data
         </button>     */}
@@ -55,6 +56,7 @@ const App = () => {
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/platecalc" element={<PlateCalculator />} />
+            <Route path="/nav" element={<Nav />} />
           </Routes>
         </Router>
       </ExerciseContext.Provider>
