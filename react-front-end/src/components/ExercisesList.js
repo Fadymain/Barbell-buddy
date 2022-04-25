@@ -21,7 +21,7 @@ function ExercisesList(props) {
 
   // const [currentExcercise, setCurrentExercise] = useState();
   // const { id } = useParams();
-  const exercises = useContext(ExcerciseContext)
+  const exercises = useContext(ExcerciseContext);
 
   return (
     <section>
