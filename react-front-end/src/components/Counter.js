@@ -46,11 +46,14 @@ function Counter(props) {
 
         <h2>{exercise.type}</h2>
 
-        <img
-          src="images/plateCalc.png"
-          className="plateCalc"
-          alt="plateCalc"
-        />
+        <Link to="/platecalc">
+          {/* <img
+            src="images/plateCalc.png"
+            className="plateCalc"
+            alt="plateCalc"
+          /> */}
+          <button>Plate Calculator</button>
+        </Link>
 
         <div>
           <form autoComplete='off' onSubmit={event => event.preventDefault()}>
