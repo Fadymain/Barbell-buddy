@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
+import "./ExerciseList.css"
 // import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import { useParams } from 'react-router-dom'
@@ -31,15 +32,11 @@ function ExercisesList(props) {
 
       <h1>Select Exercise:</h1> 
       <div className='exerciselist'>
-        {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button >{item.type}</button></Link></div>)}
+        {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button class="button-29" role="button">{item.type}</button></Link></div>)}
       </div>
 
       <div>
-        <img
-          src="images/add50.png"
-          className="save"
-          alt="save"
-        />
+        <button class='add-button' role='button'>+</button>
         <span>Add Exercise</span>
       </div>
 
