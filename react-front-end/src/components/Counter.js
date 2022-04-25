@@ -1,16 +1,26 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import CounterListItem from './CounterListItem';
 import "./Counter.css"
 
-import {Link} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import EditSharpIcon from '@material-ui/icons/EditSharp';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+// import EditSharpIcon from '@material-ui/icons/EditSharp';
+// import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+
+import ExcerciseContext from './ExercsiseContext';
 
 function Counter(props) {
   const [reps, setReps] = useState(0);
   const [weight, setWeight] = useState(0);
-  const [completed, updateCompleted] = useState([])
+  const [completed, updateCompleted] = useState([]);
+  const exercises = useContext(ExcerciseContext);
+
+  const params = useParams();
+  const exercise = exercises.find((item) => item.id == params.id)
+
+  console.log("params", params);
+  console.log("exercise", exercise);
+
 
   const updateRep = function(rep, weight) {
     // debugger
@@ -34,7 +44,7 @@ function Counter(props) {
         <KeyboardBackspaceIcon />
       </Link>
 
-        <h2>Deadlift</h2>
+        <h2>{exercise.type}</h2>
 
         <img
           src="images/plateCalc.png"

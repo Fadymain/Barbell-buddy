@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import ExcerciseContext from './ExercsiseContext';
+// import Fab from '@material-ui/core/Fab';
+// import AddIcon from '@material-ui/icons/Add';
+// import { useParams } from 'react-router-dom'
 
-import { useState } from 'react';
+
 
 // getAllExercises request to db -> gets array of exercises
-const excercises = ["Deadlifts", "Squats", "Bench Press", "Lunges", "Overhead Press"];
+// const excercises = ["Deadlifts", "Squats", "Bench Press", "Lunges", "Overhead Press"];
+// const excercises = [
+//   { type: "Deadlifts", id: 1},
+//   { type: "Squats", id: 2 }
+// ];
+
 
 
 function ExercisesList(props) {
 
-  const [currentExcercise, setCurrentExercise] = useState();
+  // const [currentExcercise, setCurrentExercise] = useState();
+  // const { id } = useParams();
+  const exercises = useContext(ExcerciseContext)
 
   return (
     <section>
@@ -21,44 +30,10 @@ function ExercisesList(props) {
         <KeyboardBackspaceIcon />
       </Link>
 
-      <h1>Select Exercise:</h1>
+      <h1>Select Exercise:</h1> 
       <div className='exerciselist'>
-        {excercises.map(item => <div><button onClick={() => setCurrentExercise(item)}>{item}</button></div>)}
+        {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button >{item.type}</button></Link></div>)}
       </div>
-
-      {/* <div className='exerciselist'>
-        <br />
-        <img
-          src="images/deadlift.png"
-          className="save"
-          alt="save"
-        />
-        <br />
-        <img
-          src="images/squats.png"
-          className="save"
-          alt="save"
-        />
-        <br />
-        <img
-          src="images/benchPress.png"
-          className="save"
-          alt="save"
-        />
-        <br />
-        <img
-          src="images/lunges.png"
-          className="save"
-          alt="save"
-        />
-        <br />
-        <img
-          src="images/overheadPress.png"
-          className="save"
-          alt="save"
-        />
-        <br />
-      </div> */}
 
       <div>
         <img
@@ -66,7 +41,7 @@ function ExercisesList(props) {
           className="save"
           alt="save"
         />
-        Add Exercise
+        <span>Add Excercise</span>
       </div>
 
     </section>

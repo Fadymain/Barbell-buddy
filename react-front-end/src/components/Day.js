@@ -5,37 +5,58 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 // import NavigationIcon from '@material-ui/icons/Navigation';
 
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import DayListItem from './DayListItem';
+
+const dayEx = [{
+  type: "Deadlift", id: 1,
+  sets: [{
+    reps: 10,
+    weight: 100
+  }]
+},
+{
+  type: "Bench Press", id: 2,
+  sets: [{
+    reps: 10,
+    weight: 80
+  }, {   reps: 10,
+    weight: 80}]
+}]
 
 
 function Day(props) {
 
+  const exList = dayEx.map((ex) =>{
+    const setList = ex.sets.map((set, index) => <DayListItem key={index} {...set} />)
+    return (<div key={ex.id}><h4>{ex.type}</h4>{setList}</div>)
+  })
+
   return (
-      <section className="day">
+    <section className="day">
 
-        {/* change onClick value */}
-        <Link to="/calendar">
-          <KeyboardBackspaceIcon onClick={event =>  window.location.href='/calendar'} />
-        </Link>
+      {/* change onClick value */}
+      <Link to="/calendar">
+        <KeyboardBackspaceIcon onClick={event => window.location.href = '/calendar'} />
+      </Link>
 
-        {/* get date from Calendar page? */}
-        <h3>Thurdsday April 28th, 2022</h3>
+      {/* get date from Calendar page? */}
+      <h3>Thurdsday April 28th, 2022</h3>
 
-        <DayListItem/>
+      {exList}
 
-        <div>
+      <div>
         <Link to="/exercises">
           <Fab size="small" color="secondary" aria-label="add" >
             <AddIcon />
           </Fab>
         </Link>
 
-          <h3>ADD TO DAY'S WORKOUT</h3>
-        </div>
+        <h3>ADD TO DAY'S WORKOUT</h3>
+      </div>
 
-      </section>
+    </section>
   );
 
 }

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+// import Card from '@material-ui/core/Card';
+// import CardContent from '@material-ui/core/CardContent';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
@@ -39,13 +39,17 @@ const useStyles = makeStyles({
 
 const DayListItem = (props) => {
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
 
-    <section classname="savedExc">
+    <section className="savedExc">
 
-      <Card className={classes.root} variant="outlined">
+      <Typography variant="body2" component="p">
+        Set 1 - {props.reps} Reps @ {props.weight}
+      </Typography>
+
+      {/* <Card className={classes.root} variant="outlined">
         <CardContent>
 
           <Typography variant="h5" component="h2">
@@ -61,7 +65,7 @@ const DayListItem = (props) => {
         </CardContent>
       </Card>
 
-      {/* <Card className={classes.root} variant="outlined">
+      <Card className={classes.root} variant="outlined">
         <CardContent>
 
           <Typography variant="h5" component="h2">
