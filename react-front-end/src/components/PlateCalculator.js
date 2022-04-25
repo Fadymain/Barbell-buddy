@@ -3,6 +3,7 @@ import plateCalculator from 'plate-calculator';
 import {Link} from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import PlateListItem from './PlateListItem';
+import "./PlateCalculator.css"
 
 function PlateCalculator(props) {
 
@@ -31,16 +32,17 @@ function PlateCalculator(props) {
 
       <div>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
-          <label for="weight">WEIGHT (lbs):</label>
-          <input type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
           <label for="barbell">BARBELL:</label>
           <input type="text" id="barbell" name="barbell" placeholder="DEFAULT 45lbs"/><br/>
-            <img
+          <label for="weight">WEIGHT (lbs):</label>
+          <input type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
+            {/* <img
               onClick={() => setCalc(plateCalculator.calculate(weight))}
               src="images/calculate.png"
               className="save"
               alt="save"
-            />
+            /> */}
+            <button onClick={() => setCalc(plateCalculator.calculate(weight))} class='calc-button' role='button'>Calculate</button>
         </form>
       </div>
 

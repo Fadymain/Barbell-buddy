@@ -1,35 +1,46 @@
 import React from 'react';
-import { AppBar, Toolbar, makeStyles, Typography } from "@material-ui/core";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { makeStyles } from '@material-ui/core/styles';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-const useStyles = makeStyles({
-  header: {
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import BookIcon from '@material-ui/icons/Book';
+import ForumTwoToneIcon from '@material-ui/icons/ForumTwoTone';
+
+const useStyles = makeStyles(() => ({
+  root: {
+    position: "fixed",
+    bottom: "0",
+    width: "100%",
     backgroundColor: "DeepSkyBlue",
     color: "black",
-    boxShadow: "0px 0px 0px 0px",
-  },
-  root: {
-    flexGrow: 1,
-  },
-  title: {
-    flexGrow: 1,
-  }
-});
+   }
+}));
 
 const BottomNav = () => {
 
   const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
   return (
 
-    <div className="App">
-      <AppBar position="sticky" className={classes.header}>
-        <Toolbar>
-          <Typography variant="h6"> Barbell Buddy </Typography>
-          {/* <AccountCircleIcon /> */}
-        </Toolbar>
-      </AppBar>
-    </div>
+    <BottomNavigation
+      value={value}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+      }}
+      showLabels
+      className={classes.root}
+    >
+      <BottomNavigationAction label="Calendar" icon={<CalendarTodayIcon />} />
+      <BottomNavigationAction label="Exercises" icon={<FitnessCenterIcon />} />
+      <BottomNavigationAction label="Daily Log" icon={<BookIcon />} />
+      <BottomNavigationAction label="Chat" icon={<ForumTwoToneIcon />} />
+    </BottomNavigation>
 
   );
 

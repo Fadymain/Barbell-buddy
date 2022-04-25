@@ -41,7 +41,6 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <h1>{"Barbell Buddy App component"}</h1> */}
       {/* <button onClick={this.fetchData} > */}
       {/* Fetch Data
         </button>     */}
