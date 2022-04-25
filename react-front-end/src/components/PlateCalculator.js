@@ -22,7 +22,8 @@ function PlateCalculator(props) {
   return (
     <section>
 
-      <Link to="/counter">
+      {/* goes back to counter for Deadlifts */}
+      <Link to="/counter/1">
         <KeyboardBackspaceIcon />
       </Link>
 
