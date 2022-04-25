@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import CounterListItem from './CounterListItem';
 import "./Counter.css"
 
-import {Link, useParams} from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 // import EditSharpIcon from '@material-ui/icons/EditSharp';
 // import CheckCircleIcon from '@material-ui/icons/CheckCircle';
@@ -22,79 +22,66 @@ function Counter(props) {
   // console.log("exercise", exercise);
 
 
-  const updateRep = function(rep, weight) {
+  const updateRep = function (rep, weight) {
     // debugger
-    if(!rep && !weight) {
+    if (!rep && !weight) {
       return;
     }
     setReps(rep);
     setWeight(weight);
   }
 
-  const completeSet = function(set) {
+  const completeSet = function (set) {
     // debugger
     updateCompleted([...completed, set])
   }
 
-  
+
 
   return (
-      <section>
+    <section>
       <Link to="/exercises">
         <KeyboardBackspaceIcon />
       </Link>
 
-        <h2>{exercise.type}</h2>
+      <h2>{exercise.type}</h2>
 
-        <Link to="/platecalc">
-          {/* <img
+      <Link to="/platecalc">
+        {/* <img
             src="images/plateCalc.png"
             className="plateCalc"
             alt="plateCalc"
           /> */}
-          <button>Plate Calculator</button>
-        </Link>
+        <button class="button-85" role="button" >Plate Calculator</button>
+      </Link>
 
-        <div>
-          <form autoComplete='off' onSubmit={event => event.preventDefault()}>
-            <div>
-              <label htmlFor="weight">WEIGHT (lbs):</label><br/>
-              <input type="text" id="weight" name="weight" onChange={(event) => updateRep(reps, event.target.value)}/>
-            </div>
-            <div>
-              <label htmlFor="reps">REPS:</label><br/>
-              <input type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)}/>
-            </div>
-            {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
-            <img
-              onClick={() => completeSet({reps, weight})}
-              src="images/counterButton.png"
-              className="counterButton"
-              alt="counterButton"
-            />
-          </form>
-        </div>
+      <div>
+        <form autoComplete='off' onSubmit={event => event.preventDefault()}>
+          <div>
+            <label htmlFor="weight">WEIGHT (lbs):</label><br />
+            <input type="text" id="weight" name="weight" onChange={(event) => updateRep(reps, event.target.value)} />
+          </div>
+          <div>
+            <label htmlFor="reps">REPS:</label><br />
+            <input type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)} />
+          </div>
+          {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
+
+          <button onClick={() => completeSet({ reps, weight })} class="button-72" role="button">SET DONE</button>
+
+        </form>
+      </div>
 
       <div>
         <h3>Completed Sets:</h3>
         <ul>
           {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
         </ul>
-
-        <img
-          src="images/edit.png"
-          className="edit"
-          alt="edit"
-        />
-
-        <img
-          src="images/save.png"
-          className="save"
-          alt="save"
-        />
+        <button class="edit-button" role="button">EDIT</button>
+        <button class="save-button" role="button">SAVE</button>
       </div>
 
-      </section>
+    </section>
   );
 
 }

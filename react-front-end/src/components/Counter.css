@@ -7,3 +7,169 @@
 .save{
   height: 60px;
 }
+
+
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+/* CSS */
+.button-72 {
+  display: inline-block;
+outline: 0;
+border: 0;
+cursor: pointer;
+color: #fff;
+font-weight: 500;
+border-radius: 4px;
+font-size: 14px;
+height: 30px;
+padding: 0px 15px;
+text-shadow: rgb(0 0 0 / 25%) 0px 3px 8px;
+background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+transition: all 0.5s ease 0s;
+
+}
+
+.button-72:hover{
+  box-shadow: rgb(80 63 205 / 50%) 0px 1px 40px;
+  transition: all 0.1s ease 0s;
+}
+
+@media (min-width: 768px) {
+  .button-72 {
+    font-size: 21px;
+    padding: 18px 34px;
+  }
+}
+
+.save-button {
+  display: inline-block;
+outline: 0;
+border: 0;
+cursor: pointer;
+color: #fff;
+font-weight: 500;
+border-radius: 4px;
+font-size: 14px;
+height: 30px;
+padding: 0px 15px;
+text-shadow: rgb(0 0 0 / 25%) 0px 3px 8px;
+background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+transition: all 0.5s ease 0s;
+
+}
+
+.save-button:hover{
+  box-shadow: rgb(80 63 205 / 50%) 0px 1px 40px;
+  transition: all 0.1s ease 0s;
+}
+
+@media (min-width: 768px) {
+  .save-button {
+    font-size: 21px;
+    padding: 18px 34px;
+  }
+}
+
+.edit-button {
+  display: inline-block;
+outline: 0;
+border: 0;
+cursor: pointer;
+color: #fff;
+font-weight: 500;
+border-radius: 4px;
+font-size: 14px;
+height: 30px;
+padding: 0px 15px;
+text-shadow: rgb(0 0 0 / 25%) 0px 3px 8px;
+background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+transition: all 0.5s ease 0s;
+
+}
+
+.edit-button:hover{
+  box-shadow: rgb(80 63 205 / 50%) 0px 1px 40px;
+  transition: all 0.1s ease 0s;
+}
+
+@media (min-width: 768px) {
+  .edit-button {
+    font-size: 21px;
+    padding: 18px 34px;
+  }
+}
+
+
