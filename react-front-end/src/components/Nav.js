@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, makeStyles, Typography } from "@material-ui/core";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import "./Nav.css"
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -16,11 +15,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   profileIcon:{
-    marginLeft: theme.spacing(24),
+    marginLeft: theme.spacing(20),
     // display: "flex",
   },
-  icon:{ height: "20px"},
-  something: {}
+  // icon:{ height: "20px"},
 }));
 
 const Nav = () => {
@@ -32,12 +30,10 @@ const Nav = () => {
     <div className="App">
       <AppBar position="sticky" className={classes.header}>
         <Toolbar>
-        <img src="images/icon.png" className={classes.icon} alt="icon" />
+        <img src="images/icon.png" alt="icon" style={ {height: "30px"} } />
           <Typography variant="h6"> Barbell Buddy </Typography>
 
-          <div className={classes.something} >
             <AccountCircleIcon className={classes.profileIcon}/>
-          </div>
 
         </Toolbar>
       </AppBar>
