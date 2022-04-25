@@ -8,9 +8,17 @@ import { Link } from "react-router-dom"
 import DayListItem from './DayListItem';
 import { makeStyles } from '@material-ui/core';
 
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 const useStyles = makeStyles((theme) => ({
   row: {display: 'flex', flexDirection: 'row'},
-  backButton: {display: 'flex'}
+  backButton: {display: 'flex'},
+  date: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-around"
+  }
 }));
 
 const dayEx = [{
@@ -49,7 +57,12 @@ function Day(props) {
         {/* get date from Calendar page? */}
       </div>
 
-      <h3>Thurdsday April 28th, 2022</h3>
+      <div className={classes.date} >
+        <ArrowBackIosIcon />
+        <h3>Thurdsday April 28th, 2022</h3>
+        <ArrowForwardIosIcon />
+      </div>
+      
 
       {exList}
 
