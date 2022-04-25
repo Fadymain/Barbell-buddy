@@ -13,7 +13,10 @@ import ExerciseContext from './components/ExerciseContext';
 
 const exercisesData = [
   { type: "Deadlifts", id: 1},
-  { type: "Squats", id: 2 }
+  { type: "Squats", id: 2 },
+  { type: "Bench Press", id: 3 },
+  { type: "Lunges", id: 4 },
+  { type: "Overhead Press", id: 5 },
 ];
 
 const App = () => {
