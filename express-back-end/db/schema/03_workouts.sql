@@ -4,5 +4,7 @@ CREATE TABLE workouts (
     users_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     day_at DATE NOT NULL Default Now(),
     exercises_id INTEGER REFERENCES exercises(id) ON DELETE CASCADE,
+    reps INTEGER NOT NULL DEFAULT 0,
+    weight DECIMAL NOT NULL DEFAULT 0,
     active_workout BOOLEAN DEFAULT TRUE
 );
