@@ -33,16 +33,16 @@ module.exports = (db) => {
   });
 
   router.post("/add", (req, res) => {
-    const {type, description ,reps, weight} = req.body
+    const {type, description} = req.body
     if(description) {
-      db.query(`INSERT INTO exercises (type, description ,reps, weight) VALUES ($1, $2, $3, $4) RETURNING *;`, [type, description ,reps, weight])
+      db.query(`INSERT INTO exercises (type, description) VALUES ($1, $2, $3, $4) RETURNING *;`, [type, description ,reps, weight])
         .then(data => {
           const regExercise = data.rows;
           console.log("created exercise", regExercise);
           res.status(204).json({});
         });
     } else {
-      db.query(`INSERT INTO exercises (type, reps, weight) VALUES ($1, $2, $3) RETURNING *;`, [type, reps, weight])
+      db.query(`INSERT INTO exercises (type) VALUES ($1) RETURNING *;`, [type])
       .then(data => {
         const regExercise = data.rows;
         console.log("created exercise", regExercise);
@@ -52,17 +52,18 @@ module.exports = (db) => {
 
   });
 
-  router.post("/update", (req, res) => {
-    const {type, description ,reps, weight} = req.body
+  router.post("/update/:id", (req, res) => {
+    const exerciseID = req.params.id
+    const {type, description} = req.body
     if(description) {
-      db.query(`INSERT INTO exercises (type, description ,reps, weight) VALUES ($1, $2, $3, $4) RETURNING *;`, [type, description ,reps, weight])
+      db.query(`UPDATE exercises SET type = $1, description = $2 WHERE id = $3;`, [type, description, exerciseID])
         .then(data => {
           const regExercise = data.rows;
           console.log("updated exercise", regExercise);
           res.status(204).json({});
         });
     } else {
-      db.query(`INSERT INTO exercises (type, reps, weight) VALUES ($1, $2, $3) RETURNING *;`, [type, reps, weight])
+      db.query(`UPDATE exercises SET type = $1 WHERE id = $3;`, [type, exerciseID])
       .then(data => {
         const regExercise = data.rows;
         console.log("updated exercise", regExercise);
