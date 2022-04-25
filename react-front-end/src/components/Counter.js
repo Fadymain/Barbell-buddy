@@ -7,19 +7,19 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 // import EditSharpIcon from '@material-ui/icons/EditSharp';
 // import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
-import ExcerciseContext from './ExercsiseContext';
+import ExerciseContext from './ExerciseContext';
 
 function Counter(props) {
   const [reps, setReps] = useState(0);
   const [weight, setWeight] = useState(0);
   const [completed, updateCompleted] = useState([]);
-  const exercises = useContext(ExcerciseContext);
+  const exercises = useContext(ExerciseContext);
 
   const params = useParams();
   const exercise = exercises.find((item) => item.id == params.id)
 
-  console.log("params", params);
-  console.log("exercise", exercise);
+  // console.log("params", params);
+  // console.log("exercise", exercise);
 
 
   const updateRep = function(rep, weight) {

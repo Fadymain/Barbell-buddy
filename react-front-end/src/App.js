@@ -9,9 +9,9 @@ import Day from './components/Day';
 import ExercisesList from './components/ExercisesList';
 import Counter from './components/Counter';
 import PlateCalculator from './components/PlateCalculator';
-import ExcerciseContext from './components/ExercsiseContext';
+import ExerciseContext from './components/ExerciseContext';
 
-const excercisesData = [
+const exercisesData = [
   { type: "Deadlifts", id: 1},
   { type: "Squats", id: 2 }
 ];
@@ -19,7 +19,7 @@ const excercisesData = [
 const App = () => {
 
   const {state} = useApplicationData();
-  const [exercises, setExercises] = useState(excercisesData)
+  const [exercises, setExercises] = useState(exercisesData)
 
   // fetchData = () => {
   //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
@@ -41,7 +41,7 @@ const App = () => {
       {/* Fetch Data
         </button>     */}
       {/* <Button/>     */}
-      <ExcerciseContext.Provider value={exercises}>
+      <ExerciseContext.Provider value={exercises}>
         <Router>
           <Routes>
             <Route path="/" element={<IntroScreen />} />
@@ -54,7 +54,7 @@ const App = () => {
             <Route path="/platecalc" element={<PlateCalculator />} />
           </Routes>
         </Router>
-      </ExcerciseContext.Provider>
+      </ExerciseContext.Provider>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import ExcerciseContext from './ExercsiseContext';
+import ExerciseContext from './ExerciseContext';
 // import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import { useParams } from 'react-router-dom'
@@ -9,8 +9,8 @@ import ExcerciseContext from './ExercsiseContext';
 
 
 // getAllExercises request to db -> gets array of exercises
-// const excercises = ["Deadlifts", "Squats", "Bench Press", "Lunges", "Overhead Press"];
-// const excercises = [
+// const exercises = ["Deadlifts", "Squats", "Bench Press", "Lunges", "Overhead Press"];
+// const exercises = [
 //   { type: "Deadlifts", id: 1},
 //   { type: "Squats", id: 2 }
 // ];
@@ -19,9 +19,8 @@ import ExcerciseContext from './ExercsiseContext';
 
 function ExercisesList(props) {
 
-  // const [currentExcercise, setCurrentExercise] = useState();
   // const { id } = useParams();
-  const exercises = useContext(ExcerciseContext);
+  const exercises = useContext(ExerciseContext);
 
   return (
     <section>
@@ -41,7 +40,7 @@ function ExercisesList(props) {
           className="save"
           alt="save"
         />
-        <span>Add Excercise</span>
+        <span>Add Exercise</span>
       </div>
 
     </section>
