@@ -2,6 +2,8 @@ import React from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 
+import { Link } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -24,8 +26,10 @@ function CalendarPage() {
     <section>
 
       <Calendar />
-      {/* either on click to save date(moment.js? or just link to day page) */}
-      <button>SELECT DATE</button>
+      
+      <Link to="/day">
+        <button>SELECT DATE</button>
+      </Link>
 
       <BottomNavigation
         value={value}
