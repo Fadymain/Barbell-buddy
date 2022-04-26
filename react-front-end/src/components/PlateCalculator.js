@@ -53,10 +53,11 @@ function PlateCalculator(props) {
 
       <div>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
-          <label for="barbell">BARBELL:</label>
-          <input type="text" id="barbell" name="barbell" placeholder="DEFAULT 45lbs"/><br/>
+          {/* <label for="barbell">BARBELL:</label> */}
+          {/* <input type="text" id="barbell" name="barbell" placeholder="DEFAULT 45lbs"/><br/> */}
           <label for="weight">WEIGHT (lbs):</label>
           <input type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
+          <div>BARBELL - DEFAULT 45lbs</div>
             {/* <img
               onClick={() => setCalc(plateCalculator.calculate(weight))}
               src="images/calculate.png"
