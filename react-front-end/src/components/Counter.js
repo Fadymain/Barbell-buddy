@@ -10,7 +10,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
-import { makeStyles, Fab } from '@material-ui/core';
+import { makeStyles, Paper, Box, Typography, Fab } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DoneIcon from '@material-ui/icons/Done';
 
@@ -23,24 +23,31 @@ const useStyles = makeStyles((theme) => ({
   backButton :{
     color: "black"
   },
-  upperButtons : {
-    display: "flex",
-    padding: "5% 5% 0 5%",
-    flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  workout: {
-    borderRadius: 25,
-    backgroundColor: "lightgray"
-  },
+  // upperButtons : {
+  //   display: "flex",
+  //   padding: "5% 5% 0 5%",
+  //   flexWrap: "wrap",
+  //   flexDirection: "row",
+  //   justifyContent: "space-between"
+  // },
   addEx: {
     display: "flex",
     position: "fixed",
     bottom: "70px",
     margin: "2%",
     alignItems: "center"
-  }
+  },
+  root: {
+    "& > *": {
+      margin: "auto",
+      width: "75%",
+      height: "auto",
+    }
+  },
+  sets: {
+    borderRadius: 25,
+    backgroundColor: "lightgray"
+  },
 }));
 
 function Counter(props) {
@@ -74,17 +81,22 @@ function Counter(props) {
     <section>
 
       <Nav />
+      <div className='inner-content'>
+
+
       
-      <div className={classes.upperButtons} >
+      {/* <div className={classes.upperButtons} > */}
+      <div>
         <Link to="/exercises">
           <KeyboardBackspaceIcon className={classes.backButton} />
-        </Link>
-        <Link to="/platecalc">
-          <button className="button-85"  >Plate Calculator</button>
         </Link>
       </div>
 
       <h2>{exercise.type}</h2>
+
+      <Link to="/platecalc">
+          <button className="button-85"  >Plate Calculator</button>
+      </Link>
 
       <div className='form'>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
@@ -99,28 +111,39 @@ function Counter(props) {
           {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
 
           <button onClick={() => completeSet({ reps, weight })} className="button-72" >SET DONE</button>
-
+          {/* <button onClick={() => completeSet({ reps, weight })} className="set-button" >SET DONE</button> */}
         </form>
       </div>
 
-      <div style={{display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", padding: 5}}>
+      <div style={{display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", paddingLeft: 20}}>
         <h3>Completed Sets:</h3>
         <EditIcon style={{paddingLeft: 10}} ></EditIcon>
       </div>
 
-      <div className='completdSets'>
+        <div className={classes.root}>
+          <Paper className={classes.sets} elevation={5}>
+            <Box p={1}>
+              <ul>
+                {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
+              </ul>
+            </Box>
+          </Paper>
+        </div>
+
+      {/* <div className='completdSets'>
         <ul>
           {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
         </ul>
-        {/* <button className="save-button" >SAVE</button> */}
-      </div>
+      </div> */}
 
-      <div className="saveButton" style={{position: "fixed", right: "10px", bottom: "70px", }} >
+      {/* <div className="saveButton" style={{position: "fixed", right: "10px", bottom: "70px", }} > */}
+        <div>
         <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton}>
           <DoneIcon /> SAVE
         </Fab>
       </div>
 
+      </div>
       <BottomNav />
 
     </section>
