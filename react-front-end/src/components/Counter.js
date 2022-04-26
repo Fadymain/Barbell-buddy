@@ -20,34 +20,23 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     backgroundColor: "LimeGreen"
   },
-  backButton :{
-    color: "black"
-  },
-  // upperButtons : {
-  //   display: "flex",
-  //   padding: "5% 5% 0 5%",
-  //   flexWrap: "wrap",
-  //   flexDirection: "row",
-  //   justifyContent: "space-between"
-  // },
-  addEx: {
-    display: "flex",
-    position: "fixed",
-    bottom: "70px",
-    margin: "2%",
-    alignItems: "center"
-  },
   root: {
     "& > *": {
       margin: "auto",
-      width: "75%",
+      width: "70%",
       height: "auto",
+      textAlign: "left",
     }
   },
   sets: {
     borderRadius: 25,
-    backgroundColor: "lightgray"
+    backgroundColor: "lightgray",
+    display: "flex",
   },
+  inputs: {
+    display: "flex",
+    justifyContent: "center"
+  }
 }));
 
 function Counter(props) {
@@ -79,73 +68,59 @@ function Counter(props) {
 
   return (
     <section>
-
       <Nav />
       <div className='inner-content'>
 
+        <div style={{ display: "flex", padding: "5% 0 0 5%" }}>
+          <Link to="/exercises">
+            <KeyboardBackspaceIcon style={{ color: "black" }} />
+          </Link>
+        </div>
 
-      
-      {/* <div className={classes.upperButtons} > */}
-      <div>
-        <Link to="/exercises">
-          <KeyboardBackspaceIcon className={classes.backButton} />
-        </Link>
-      </div>
+        <h2 style={{ marginTop: 0 }} >{exercise.type}</h2>
 
-      <h2>{exercise.type}</h2>
-
-      <Link to="/platecalc">
+        <Link to="/platecalc">
           <button className="button-85"  >Plate Calculator</button>
-      </Link>
+        </Link>
 
-      <div className='form'>
-        <form autoComplete='off' onSubmit={event => event.preventDefault()}>
-          <div>
-            <label htmlFor="weight">WEIGHT (lbs):</label><br />
-            <input type="text" id="weight" name="weight" onChange={(event) => updateRep(reps, event.target.value)} />
-          </div>
-          <div>
-            <label htmlFor="reps">REPS:</label><br />
-            <input type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)} />
+        <form style={{ padding: 10 }} autoComplete='off' onSubmit={event => event.preventDefault()}>
+          <div className={classes.inputs} >
+            <div style={{ paddingRight: 50 }}>
+              <label htmlFor="weight">WEIGHT (lbs):</label><br />
+              <input size="5" type="text" id="weight" name="weight" onChange={(event) => updateRep(reps, event.target.value)} />
+            </div>
+            <div>
+              <label htmlFor="reps">REPS:</label><br />
+              <input size="5" type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)} />
+            </div>
           </div>
           {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
-
-          <button onClick={() => completeSet({ reps, weight })} className="button-72" >SET DONE</button>
-          {/* <button onClick={() => completeSet({ reps, weight })} className="set-button" >SET DONE</button> */}
+          {/* <button onClick={() => completeSet({ reps, weight })} className="button-72" >SET DONE</button> */}
+          <button onClick={() => completeSet({ reps, weight })} className="set-button" >SET DONE</button>
         </form>
-      </div>
-
-      <div style={{display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", paddingLeft: 20}}>
-        <h3>Completed Sets:</h3>
-        <EditIcon style={{paddingLeft: 10}} ></EditIcon>
-      </div>
 
         <div className={classes.root}>
           <Paper className={classes.sets} elevation={5}>
             <Box p={1}>
-              <ul>
+              <div style={{ display: "flex", flexDirection: "row", alignItems: "baseline" }}>
+                <h3>Completed Sets:</h3>
+                <EditIcon style={{ paddingLeft: 10 }} ></EditIcon>
+              </div>
+              <ul style={{ listStyleType: "none" }} >
                 {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
               </ul>
             </Box>
           </Paper>
         </div>
 
-      {/* <div className='completdSets'>
-        <ul>
-          {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
-        </ul>
-      </div> */}
-
-      {/* <div className="saveButton" style={{position: "fixed", right: "10px", bottom: "70px", }} > */}
-        <div>
-        <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton}>
-          <DoneIcon /> SAVE
-        </Fab>
-      </div>
+        <div className="saveButton" style={{ position: "fixed", right: "10px", bottom: "70px", }} >
+          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton}>
+            <DoneIcon /> SAVE
+          </Fab>
+        </div>
 
       </div>
       <BottomNav />
-
     </section>
   );
 
