@@ -25,13 +25,15 @@ const useStyles = makeStyles((theme) => ({
       margin: "auto",
       width: "70%",
       height: "auto",
-      textAlign: "left",
+      // textAlign: "left",
+      // justifyContent: "center"
     }
   },
   sets: {
     // borderRadius: 25,
     backgroundColor: "lightgray",
     display: "flex",
+    justifyContent: "center"
   },
   inputs: {
     display: "flex",
@@ -106,7 +108,7 @@ function Counter(props) {
                 <h3>Completed Sets:</h3>
                 <EditIcon style={{ paddingLeft: 10 }} ></EditIcon>
               </div>
-              <ul style={{ listStyleType: "none" }} >
+              <ul style={{ listStyleType: "none", paddingInlineStart: 0 }} >
                 {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
               </ul>
             </Box>

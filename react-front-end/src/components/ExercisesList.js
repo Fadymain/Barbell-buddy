@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
     bottom: "70px",
     margin: "2%",
     alignItems: "center"
+  },
+  excButton: {
+    padding: 5,
+    // fontFamily: ""
   }
 }));
 
@@ -66,8 +70,8 @@ function ExercisesList(props) {
 
 
       <h1 style={{marginTop: 0}}>Select Exercise:</h1> 
-      <div className='exerciselist'>
-        {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
+      <div>
+        {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
       <div className={classes.addEx}>
