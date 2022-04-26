@@ -1,16 +1,41 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import "./ExerciseList.css"
 import BottomNav from './BottomNav';
 import Nav from './Nav';
+import { makeStyles, Fab } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 
-// import Fab from '@material-ui/core/Fab';
-// import AddIcon from '@material-ui/icons/Add';
-// import { useParams } from 'react-router-dom'
-
+const useStyles = makeStyles((theme) => ({
+  addButton: {
+    margin: 10,
+    // top: "auto",
+    // right: 20,
+    // bottom: 20,
+    // left: "auto",
+    // position: "fixed",
+    color: "black",
+    // zIndex: 20,
+    backgroundColor: "DeepSkyBlue"
+  },
+  backButton :{
+    color: "black"
+  },
+  workout: {
+    borderRadius: 25,
+    backgroundColor: "lightgray"
+  },
+  addEx: {
+    display: "flex",
+    position: "fixed",
+    bottom: "70px",
+    margin: "2%",
+    alignItems: "center"
+  }
+}));
 
 
 // getAllExercises request to db -> gets array of exercises
@@ -24,26 +49,34 @@ import Nav from './Nav';
 
 function ExercisesList(props) {
 
+  const classes = useStyles();
   // const { id } = useParams();
   const exercises = useContext(ExerciseContext);
 
   return (
     <section>
       <Nav />
-      <div id="app-modal"/>
+      {/* <div id="app-modal"/> */}
 
-      <Link to="/day">
-        <KeyboardBackspaceIcon />
-      </Link>
+      <div style={{display: "flex", padding: "5% 0 0 5%" }}>
+        <Link to="/day">
+          <KeyboardBackspaceIcon className={classes.backButton} />
+        </Link>
+      </div>
+
 
       <h1>Select Exercise:</h1> 
       <div className='exerciselist'>
         {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
-      <div>
-        <button className='add-button'>+</button>
-        <span>Add Exercise</span>
+      <div className={classes.addEx}>
+        <Link to="/exercises">
+          <Fab size="medium" aria-label="add" className={classes.addButton}>
+            <AddIcon />
+          </Fab>
+        </Link>
+        <h3>Add Exercise</h3>
       </div>
 
       <BottomNav />

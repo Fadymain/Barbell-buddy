@@ -1,18 +1,11 @@
 import React from 'react';
-
-import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import Fab from '@material-ui/core/Fab';
+// import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-// import NavigationIcon from '@material-ui/icons/Navigation';
 import { Link } from "react-router-dom"
 import DayListItem from './DayListItem';
-import { makeStyles, Paper, Box, Typography } from '@material-ui/core';
-
+import { makeStyles, Paper, Box, Typography, Fab } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
-// import { Paper, Box, Typography } from '@material-ui/core';
-
 import BottomNav from './BottomNav';
 import Nav from './Nav';
 
@@ -28,13 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   addButton: {
     margin: 10,
-    // top: "auto",
-    // right: 20,
-    // bottom: 20,
-    // left: "auto",
-    // position: "fixed",
     color: "black",
-    // zIndex: 20,
     backgroundColor: "DeepSkyBlue"
   },
   root: {
