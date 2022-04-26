@@ -6,6 +6,23 @@ import PlateListItem from './PlateListItem';
 import "./PlateCalculator.css"
 import BottomNav from './BottomNav';
 import Nav from './Nav';
+import { makeStyles, Paper, Box, Typography, Fab } from '@material-ui/core';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: "auto",
+      width: "75%",
+      height: "auto",
+    }
+  },
+  calculated: {
+    borderRadius: 25,
+    backgroundColor: "lightgray"
+  },
+}));
+
 
 function PlateCalculator(props) {
 
@@ -20,6 +37,8 @@ function PlateCalculator(props) {
   const plateCalc = function(weight) {
     plateCalculator.calculate(weight);
   }
+
+  const classes = useStyles();
 
   return (
     <section>
@@ -52,11 +71,19 @@ function PlateCalculator(props) {
         <h3>Closest weight:<br/>{calc.closestWeight}</h3>
         <div>
           <h3>Plates/side:</h3>
-          <ul>
+          {/* <ul> */}
             {/* {calc.plates && calc.plates.map((plates, index) => console.log("plates and index:", plates, index))} */}
-            {calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)}
-          </ul>
+            {/* {calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)} */}
+          {/* </ul> */}
         </div>
+      </div>
+
+      <div className={classes.root}>
+        <Paper className={classes.workout} elevation={5}>
+          <Box p={1}>
+            <Typography variant="h5">{calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)}</Typography>
+          </Box>
+        </Paper>
       </div>
 
       <BottomNav />
