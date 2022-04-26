@@ -13,6 +13,8 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 // import { Paper, Box, Typography } from '@material-ui/core';
 
+import BottomNav from './BottomNav';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -117,6 +119,8 @@ function Day(props) {
         </Link>
         <h3>ADD TO DAY'S WORKOUT</h3>
       </div>
+
+      <BottomNav />
 
     </section>
   );

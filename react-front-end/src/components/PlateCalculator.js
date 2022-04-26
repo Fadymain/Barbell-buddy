@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import PlateListItem from './PlateListItem';
 import "./PlateCalculator.css"
+import BottomNav from './BottomNav';
 
 function PlateCalculator(props) {
 
@@ -56,6 +57,8 @@ function PlateCalculator(props) {
           </ul>
         </div>
       </div>
+
+      <BottomNav />
 
     </section>
   );

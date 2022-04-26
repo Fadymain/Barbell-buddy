@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import "./ExerciseList.css"
+import BottomNav from './BottomNav';
+
 // import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import { useParams } from 'react-router-dom'
@@ -25,6 +27,7 @@ function ExercisesList(props) {
 
   return (
     <section>
+      <div id="app-modal"/>
 
       <Link to="/day">
         <KeyboardBackspaceIcon />
@@ -32,13 +35,15 @@ function ExercisesList(props) {
 
       <h1>Select Exercise:</h1> 
       <div className='exerciselist'>
-        {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" role="button">{item.type}</button></Link></div>)}
+        {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
       <div>
-        <button className='add-button' role='button'>+</button>
+        <button className='add-button'>+</button>
         <span>Add Exercise</span>
       </div>
+
+      <BottomNav />
 
     </section>
   );

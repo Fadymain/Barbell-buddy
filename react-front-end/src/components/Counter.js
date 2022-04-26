@@ -8,6 +8,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 // import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 import ExerciseContext from './ExerciseContext';
+import BottomNav from './BottomNav';
 
 function Counter(props) {
   const [reps, setReps] = useState(0);
@@ -75,6 +76,8 @@ function Counter(props) {
         <button className="edit-button" role="button">EDIT</button>
         <button className="save-button" role="button">SAVE</button>
       </div>
+
+      <BottomNav />
 
     </section>
   );
