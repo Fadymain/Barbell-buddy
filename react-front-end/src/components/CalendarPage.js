@@ -1,18 +1,23 @@
 import React from 'react';
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-
-import { Link } from 'react-router-dom';
-
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
+import { Fab } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: 500,
+    '& > *': {
+      margin: theme.spacing(1),
+    },
   },
-});
+  dateButton: {
+    margin: 20,
+    color: "black",
+    backgroundColor: "DeepSkyBlue"
+  },
+}));
 
 function CalendarPage() {
 
@@ -25,9 +30,9 @@ function CalendarPage() {
 
       <Calendar />
       
-      <Link to="/day">
-        <button>SELECT DATE</button>
-      </Link>
+        <Fab size="large" variant="extended" className={classes.dateButton} href="/day" >
+          SELECT DATE
+        </Fab>
 
       <BottomNav />
 
