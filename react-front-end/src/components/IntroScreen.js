@@ -6,9 +6,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Gill Sans",
     fontSize: "60px"
   },
-  introImg: {
-    height: "250px"
-  },
   subheading: {
     fontFamily: 'Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial'
   }

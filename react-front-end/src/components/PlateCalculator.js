@@ -12,7 +12,6 @@ function PlateCalculator(props) {
   const [weight, setWeight] = useState("");
   const [calc, setCalc] = useState({});
 
-
   const completeCalc = function(weight) {
     // debugger
     setCalc(plateCalculator.calculate(weight))
