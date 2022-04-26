@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     // border: "solid",
-    borderRadius: 25,
+    // borderRadius: 25,
     backgroundColor: "lightgray"
   },
   box: {

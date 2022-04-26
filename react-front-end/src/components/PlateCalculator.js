@@ -18,9 +18,12 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   paper: {
-    borderRadius: 25,
+    // borderRadius: 25,
     backgroundColor: "lightgray"
   },
+  text: {
+    // textAlign: "left",
+  }
 }));
 
 
@@ -57,7 +60,7 @@ function PlateCalculator(props) {
 
           <label for="weight">WEIGHT (lbs):</label>
           <input size="5" type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
-          <label for="barbell">BARBELL (lbs):</label>
+          <label for="barbell">BARBELL:</label>
           <input size="2" type="text" id="barbell" name="barbell" placeholder="45"/><br/>
           {/* <div>BARBELL - DEFAULT 45lbs</div> */}
             {/* <img
@@ -77,7 +80,7 @@ function PlateCalculator(props) {
           <Box p={1}>
             <h3>Closest weight:<br />{calc.closestWeight}</h3>
             <h3>Plates/side:</h3>
-            <Typography variant="h5">{calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)}</Typography>
+            <Typography className={classes.text}>{calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)}</Typography>
           </Box>
         </Paper>
       </div>

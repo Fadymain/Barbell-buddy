@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   sets: {
-    borderRadius: 25,
+    // borderRadius: 25,
     backgroundColor: "lightgray",
     display: "flex",
   },
