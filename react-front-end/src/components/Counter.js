@@ -11,17 +11,12 @@ import ExerciseContext from './ExerciseContext';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
 import { makeStyles, Fab } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   addButton: {
     margin: 10,
-    // top: "auto",
-    // right: 20,
-    // bottom: 20,
-    // left: "auto",
-    // position: "fixed",
     color: "black",
-    // zIndex: 20,
     backgroundColor: "DeepSkyBlue"
   },
   backButton :{
@@ -29,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   upperButtons : {
     display: "flex",
-    padding: "5% 0 0 5%",
+    padding: "5% 5% 0 5%",
     flexWrap: "wrap",
     flexDirection: "row",
     justifyContent: "space-between"
@@ -59,10 +54,6 @@ function Counter(props) {
 
   const classes = useStyles();
 
-  // console.log("params", params);
-  // console.log("exercise", exercise);
-
-
   const updateRep = function (rep, weight) {
     // debugger
     if (!rep && !weight) {
@@ -76,7 +67,6 @@ function Counter(props) {
     // debugger
     updateCompleted([...completed, set])
   }
-
 
 
   return (
@@ -96,7 +86,7 @@ function Counter(props) {
 
 
 
-      <div>
+      <div className='form'>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
           <div>
             <label htmlFor="weight">WEIGHT (lbs):</label><br />
@@ -113,12 +103,15 @@ function Counter(props) {
         </form>
       </div>
 
-      <div>
+      <div style={{display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center"}}>
         <h3>Completed Sets:</h3>
+        <EditIcon style={{paddingLeft: 10}} ></EditIcon>
+      </div>
+
+      <div>
         <ul>
           {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
         </ul>
-        <button className="edit-button" >EDIT</button>
         <button className="save-button" >SAVE</button>
       </div>
 
