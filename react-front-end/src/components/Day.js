@@ -14,6 +14,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 // import { Paper, Box, Typography } from '@material-ui/core';
 
 import BottomNav from './BottomNav';
+import Nav from './Nav';
 
 
 
@@ -80,6 +81,8 @@ function Day(props) {
 
   return (
     <section className="day">
+      <Nav />
+      
       <div className={classes.backButton}>
         {/* change onClick value */}
         <Link to="/calendar">

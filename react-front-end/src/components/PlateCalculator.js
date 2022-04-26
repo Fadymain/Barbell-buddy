@@ -5,6 +5,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import PlateListItem from './PlateListItem';
 import "./PlateCalculator.css"
 import BottomNav from './BottomNav';
+import Nav from './Nav';
 
 function PlateCalculator(props) {
 
@@ -23,7 +24,8 @@ function PlateCalculator(props) {
 
   return (
     <section>
-
+      <Nav />
+      
       {/* goes back to counter for Deadlifts */}
       <Link to="/counter/1">
         <KeyboardBackspaceIcon />

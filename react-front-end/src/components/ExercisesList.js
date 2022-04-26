@@ -4,6 +4,8 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import "./ExerciseList.css"
 import BottomNav from './BottomNav';
+import Nav from './Nav';
+
 
 // import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
@@ -27,6 +29,7 @@ function ExercisesList(props) {
 
   return (
     <section>
+      <Nav />
       <div id="app-modal"/>
 
       <Link to="/day">

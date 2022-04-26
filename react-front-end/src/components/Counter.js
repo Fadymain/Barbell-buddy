@@ -9,6 +9,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
 import ExerciseContext from './ExerciseContext';
 import BottomNav from './BottomNav';
+import Nav from './Nav';
 
 function Counter(props) {
   const [reps, setReps] = useState(0);
@@ -41,6 +42,8 @@ function Counter(props) {
 
   return (
     <section>
+      <Nav />
+      
       <Link to="/exercises">
         <KeyboardBackspaceIcon />
       </Link>
