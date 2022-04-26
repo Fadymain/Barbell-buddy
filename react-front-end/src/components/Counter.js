@@ -12,12 +12,13 @@ import BottomNav from './BottomNav';
 import Nav from './Nav';
 import { makeStyles, Fab } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import DoneIcon from '@material-ui/icons/Done';
 
 const useStyles = makeStyles((theme) => ({
-  addButton: {
-    margin: 10,
+  saveButton: {
+    // margin: 10,
     color: "black",
-    backgroundColor: "DeepSkyBlue"
+    backgroundColor: "LimeGreen"
   },
   backButton :{
     color: "black"
@@ -71,6 +72,7 @@ function Counter(props) {
 
   return (
     <section>
+
       <Nav />
       
       <div className={classes.upperButtons} >
@@ -83,8 +85,6 @@ function Counter(props) {
       </div>
 
       <h2>{exercise.type}</h2>
-
-
 
       <div className='form'>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
@@ -108,11 +108,17 @@ function Counter(props) {
         <EditIcon style={{paddingLeft: 10}} ></EditIcon>
       </div>
 
-      <div>
+      <div className='completdSets'>
         <ul>
           {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
         </ul>
-        <button className="save-button" >SAVE</button>
+        {/* <button className="save-button" >SAVE</button> */}
+      </div>
+
+      <div className="saveButton" style={{position: "fixed", right: "10px", bottom: "70px", }} >
+        <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton}>
+          <DoneIcon /> SAVE
+        </Fab>
       </div>
 
       <BottomNav />
