@@ -103,7 +103,7 @@ function Counter(props) {
         </form>
       </div>
 
-      <div style={{display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center"}}>
+      <div style={{display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "center", padding: 5}}>
         <h3>Completed Sets:</h3>
         <EditIcon style={{paddingLeft: 10}} ></EditIcon>
       </div>
