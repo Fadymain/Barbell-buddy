@@ -65,7 +65,7 @@ function ExercisesList(props) {
       </div>
 
 
-      <h1>Select Exercise:</h1> 
+      <h1 style={{marginTop: 0}}>Select Exercise:</h1> 
       <div className='exerciselist'>
         {exercises.map(item => <div key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
