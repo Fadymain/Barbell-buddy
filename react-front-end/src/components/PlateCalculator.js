@@ -67,16 +67,8 @@ function PlateCalculator(props) {
         </form>
       </div>
 
-      <div>
-        <h3>Closest weight:<br/>{calc.closestWeight}</h3>
-        <div>
-          <h3>Plates/side:</h3>
-          {/* <ul> */}
-            {/* {calc.plates && calc.plates.map((plates, index) => console.log("plates and index:", plates, index))} */}
-            {/* {calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)} */}
-          {/* </ul> */}
-        </div>
-      </div>
+      <h3>Closest weight:<br />{calc.closestWeight}</h3>
+      <h3>Plates/side:</h3>
 
       <div className={classes.root}>
         <Paper className={classes.workout} elevation={5}>
