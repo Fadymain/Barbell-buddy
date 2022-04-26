@@ -51,7 +51,7 @@ function Counter(props) {
       <h2>{exercise.type}</h2>
 
       <Link to="/platecalc">
-        <button className="button-85" role="button" >Plate Calculator</button>
+        <button className="button-85"  >Plate Calculator</button>
       </Link>
 
       <div>
@@ -66,7 +66,7 @@ function Counter(props) {
           </div>
           {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
 
-          <button onClick={() => completeSet({ reps, weight })} className="button-72" role="button">SET DONE</button>
+          <button onClick={() => completeSet({ reps, weight })} className="button-72" >SET DONE</button>
 
         </form>
       </div>
@@ -76,8 +76,8 @@ function Counter(props) {
         <ul>
           {completed.map((set, index) => <CounterListItem key={index} index={index + 1} rep={set.reps} weight={set.weight} />)}
         </ul>
-        <button className="edit-button" role="button">EDIT</button>
-        <button className="save-button" role="button">SAVE</button>
+        <button className="edit-button" >EDIT</button>
+        <button className="save-button" >SAVE</button>
       </div>
 
       <BottomNav />

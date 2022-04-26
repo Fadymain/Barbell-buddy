@@ -45,7 +45,7 @@ function PlateCalculator(props) {
               className="save"
               alt="save"
             /> */}
-            <button onClick={() => setCalc(plateCalculator.calculate(weight))} class='calc-button' role='button'>Calculate</button>
+            <button onClick={() => setCalc(plateCalculator.calculate(weight))} class='calc-button' >Calculate</button>
         </form>
       </div>
 
