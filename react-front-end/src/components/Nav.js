@@ -30,7 +30,7 @@ const Nav = () => {
     <div className="App">
       <AppBar position="sticky" className={classes.header}>
         <Toolbar>
-        <img src="images/icon.png" alt="icon" style={ {height: "30px"} } />
+        <img src="/images/barbell.png" alt="barbell" style={ {height: "30px"} } />
           <Typography variant="h6"> Barbell Buddy </Typography>
 
             <AccountCircleIcon className={classes.profileIcon}/>

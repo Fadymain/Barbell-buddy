@@ -104,12 +104,12 @@ function Day(props) {
       </Paper> */}
 
       <div className={classes.root}>
-      <Paper className={classes.workout} elevation={5}>
-        <Box p={1}>
-          <Typography variant="h5">{exList}</Typography>
-        </Box>
-      </Paper>
-    </div>
+        <Paper className={classes.workout} elevation={5}>
+          <Box p={1}>
+            <Typography variant="h5">{exList}</Typography>
+          </Box>
+        </Paper>
+      </div>
       
 
       
