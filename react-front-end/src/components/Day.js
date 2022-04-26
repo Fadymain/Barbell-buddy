@@ -18,6 +18,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around"
+  },
+  addButton: {
+    margin: 10,
+    // top: "auto",
+    // right: 20,
+    // bottom: 20,
+    // left: "auto",
+    // position: "fixed",
+    color: "black",
+    // zIndex: 20,
+    backgroundColor: "DeepSkyBlue"
   }
 }));
 
@@ -40,12 +51,12 @@ const dayEx = [{
 
 function Day(props) {
 
+  const classes = useStyles();
+
   const exList = dayEx.map((ex) =>{
     const setList = ex.sets.map((set, index) => <DayListItem key={index} {...set} />)
     return (<div key={ex.id}><h4>{ex.type}</h4>{setList}</div>)
   })
-
-  const classes = useStyles();
 
   return (
     <section className="day">
@@ -68,7 +79,7 @@ function Day(props) {
 
       <div className={classes.row}>
         <Link to="/exercises">
-          <Fab size="small" color="secondary" aria-label="add">
+          <Fab size="small" aria-label="add" className={classes.addButton}>
             <AddIcon />
           </Fab>
         </Link>
