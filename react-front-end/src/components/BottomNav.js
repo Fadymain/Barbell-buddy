@@ -32,10 +32,10 @@ const BottomNav = () => {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Calendar" icon={<CalendarTodayIcon />} />
-      <BottomNavigationAction label="Exercises" icon={<FitnessCenterIcon />} />
-      <BottomNavigationAction label="Daily Log" icon={<BookIcon />} />
-      <BottomNavigationAction label="Chat" icon={<ForumTwoToneIcon />} />
+      <BottomNavigationAction label="Calendar" icon={<CalendarTodayIcon onClick={() => window.location.href = '/calendar'} />} />
+      <BottomNavigationAction label="Exercises" icon={<FitnessCenterIcon onClick={() => window.location.href = '/exercises'}  />} />
+      <BottomNavigationAction label="Daily Log" icon={<BookIcon onClick={() => window.location.href = '/day'}  />} />
+      <BottomNavigationAction label="Chat" icon={<ForumTwoToneIcon onClick={() => window.location.href = '/chat'}  />} />
     </BottomNavigation>
 
   );

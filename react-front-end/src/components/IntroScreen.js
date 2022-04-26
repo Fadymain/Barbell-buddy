@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "60px"
   },
   subheading: {
-    fontFamily: 'Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial'
+    fontFamily: 'Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial',
+    padding: 20
   }
 }));
 
@@ -23,7 +24,7 @@ function IntroScreen() {
           src="images/barbell.png"
           className="barbell"
           alt="barbell"
-          style={{ height: "250px"}}
+          style={{ height: "200px"}}
         />
         <h2 className={classes.subheading} >WEIGHTLIFTING TRACKER</h2>
       </section>

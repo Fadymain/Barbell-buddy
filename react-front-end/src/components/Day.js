@@ -109,7 +109,7 @@ function Day(props) {
           <Box className={classes.box} p={1}>
             <Typography className={classes.text} >{exList}</Typography>
             <div style={{paddingLeft: 10}} className={classes.text}>
-              <EditIcon /> NOTES
+              <EditIcon /> Notes
             </div>
           </Box>
         </Paper>
