@@ -6,10 +6,14 @@ import AddIcon from '@material-ui/icons/Add';
 // import NavigationIcon from '@material-ui/icons/Navigation';
 import { Link } from "react-router-dom"
 import DayListItem from './DayListItem';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Paper, Box, Typography } from '@material-ui/core';
 
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
+// import { Paper, Box, Typography } from '@material-ui/core';
+
+
 
 const useStyles = makeStyles((theme) => ({
   row: {display: 'flex', flexDirection: 'row'},
@@ -29,6 +33,20 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     // zIndex: 20,
     backgroundColor: "DeepSkyBlue"
+  },
+  workout: {
+    // backgroundColor: "red"
+  },
+  root: {
+    "& > *": {
+      margin: "auto",
+      width: "75%",
+      height: "auto",
+    }
+  },
+  workout: {
+    borderRadius: 25,
+    backgroundColor: "lightgray"
   }
 }));
 
@@ -74,8 +92,22 @@ function Day(props) {
         <ArrowForwardIosIcon />
       </div>
       
+      {/* <Paper>
+      <div className={classes.workout} >
+        {exList}
+      </div>
+      </Paper> */}
 
-      {exList}
+      <div className={classes.root}>
+      <Paper className={classes.workout} elevation={5}>
+        <Box p={1}>
+          <Typography variant="h5">{exList}</Typography>
+        </Box>
+      </Paper>
+    </div>
+      
+
+      
 
       <div className={classes.row}>
         <Link to="/exercises">
