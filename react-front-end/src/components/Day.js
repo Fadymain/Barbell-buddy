@@ -82,14 +82,6 @@ function Day(props) {
   return (
     <section className="day">
       <Nav />
-      
-      <div className={classes.backButton}>
-        {/* change onClick value */}
-        <Link to="/calendar">
-          <KeyboardBackspaceIcon onClick={event => window.location.href = '/calendar'} />
-        </Link>
-        {/* get date from Calendar page? */}
-      </div>
 
       <div className={classes.date} >
         <ArrowBackIosIcon />
