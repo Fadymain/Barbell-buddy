@@ -9,16 +9,17 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 0px 0px 0px",
   },
   root: {
-    flexGrow: 1,
+    display: "flex",
+    flexDirection: 'row',
+    justifyContent: "center"
   },
-  title: {
-    flexGrow: 1,
+  profileIcon: {
+    marginLeft: "50%",
   },
-  profileIcon:{
-    marginLeft: theme.spacing(20),
-    // display: "flex",
-  },
-  // icon:{ height: "20px"},
+  font: {
+    fontWeight: 700,
+    paddingLeft: "5%"
+  }
 }));
 
 const Nav = () => {
@@ -27,14 +28,12 @@ const Nav = () => {
 
   return (
 
-    <div className="App">
+    <div className="Nav">
       <AppBar position="sticky" className={classes.header}>
-        <Toolbar>
-        <img src="/images/barbell.png" alt="barbell" style={ {height: "30px"} } />
-          <Typography variant="h6"> Barbell Buddy </Typography>
-
-            <AccountCircleIcon className={classes.profileIcon}/>
-
+        <Toolbar >
+          <img src="/images/barbell.png" alt="barbell" style={{ height: "30px" }} />
+          <Typography className={classes.font} > Barbell Buddy </Typography>
+          <AccountCircleIcon className={classes.profileIcon} />
         </Toolbar>
       </AppBar>
     </div>
