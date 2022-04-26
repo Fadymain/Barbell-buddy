@@ -27,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
   backButton :{
     color: "black"
   },
+  upperButtons : {
+    display: "flex",
+    padding: "5% 0 0 5%",
+    flexWrap: "wrap",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
   workout: {
     borderRadius: 25,
     backgroundColor: "lightgray"
@@ -76,17 +83,18 @@ function Counter(props) {
     <section>
       <Nav />
       
-      <div style={{display: "flex", padding: "5% 0 0 5%" }}>
+      <div className={classes.upperButtons} >
         <Link to="/exercises">
           <KeyboardBackspaceIcon className={classes.backButton} />
+        </Link>
+        <Link to="/platecalc">
+          <button className="button-85"  >Plate Calculator</button>
         </Link>
       </div>
 
       <h2>{exercise.type}</h2>
 
-      <Link to="/platecalc">
-        <button className="button-85"  >Plate Calculator</button>
-      </Link>
+
 
       <div>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
