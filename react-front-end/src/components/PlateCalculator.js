@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
     }
   },
-  calculated: {
+  paper: {
     borderRadius: 25,
     backgroundColor: "lightgray"
   },
@@ -43,21 +43,23 @@ function PlateCalculator(props) {
   return (
     <section>
       <Nav />
-      
-      {/* goes back to counter for Deadlifts */}
-      <Link to="/counter/1">
-        <KeyboardBackspaceIcon />
-      </Link>
 
-      <h2>Plate Calculator</h2>
+      <div style={{ display: "flex", padding: "5% 0 0 5%" }}>
+        <Link to="/counter/1">
+          <KeyboardBackspaceIcon style={{ color: "black" }} />
+        </Link>
+      </div>
+
+      <h2 style={{ marginTop: 0}} >Plate Calculator</h2>
 
       <div>
         <form autoComplete='off' onSubmit={event => event.preventDefault()}>
-          {/* <label for="barbell">BARBELL:</label> */}
-          {/* <input type="text" id="barbell" name="barbell" placeholder="DEFAULT 45lbs"/><br/> */}
+
           <label for="weight">WEIGHT (lbs):</label>
-          <input type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
-          <div>BARBELL - DEFAULT 45lbs</div>
+          <input size="5" type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
+          <label for="barbell">BARBELL (lbs):</label>
+          <input size="2" type="text" id="barbell" name="barbell" placeholder="45"/><br/>
+          {/* <div>BARBELL - DEFAULT 45lbs</div> */}
             {/* <img
               onClick={() => setCalc(plateCalculator.calculate(weight))}
               src="images/calculate.png"
@@ -68,12 +70,13 @@ function PlateCalculator(props) {
         </form>
       </div>
 
-      <h3>Closest weight:<br />{calc.closestWeight}</h3>
-      <h3>Plates/side:</h3>
 
-      <div className={classes.root}>
-        <Paper className={classes.workout} elevation={5}>
+
+      <div style={{padding: 20}} className={classes.root}>
+        <Paper className={classes.paper} elevation={5}>
           <Box p={1}>
+            <h3>Closest weight:<br />{calc.closestWeight}</h3>
+            <h3>Plates/side:</h3>
             <Typography variant="h5">{calc.plates && calc.plates.map((plates, index) => <PlateListItem key={index} weight={plates.plateWeight} qty={plates.qty / 2} />)}</Typography>
           </Box>
         </Paper>
