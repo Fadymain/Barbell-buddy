@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import plateCalculator from 'plate-calculator';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import PlateListItem from './PlateListItem';
 import "./PlateCalculator.css"

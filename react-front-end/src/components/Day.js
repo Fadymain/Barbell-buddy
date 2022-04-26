@@ -37,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
     // zIndex: 20,
     backgroundColor: "DeepSkyBlue"
   },
-  workout: {
-    // backgroundColor: "red"
-  },
   root: {
     "& > *": {
       margin: "auto",
@@ -50,24 +47,42 @@ const useStyles = makeStyles((theme) => ({
   workout: {
     borderRadius: 25,
     backgroundColor: "lightgray"
+  },
+  addEx: {
+    display: "flex",
+    position: "fixed",
+    bottom: "70px",
+    margin: "2%",
+    alignItems: "center"
   }
 }));
 
-const dayEx = [{
-  type: "Deadlift", id: 1,
-  sets: [{
-    reps: 10,
-    weight: 100
-  }]
-},
-{
-  type: "Bench Press", id: 2,
-  sets: [{
-    reps: 10,
-    weight: 80
-  }, {   reps: 10,
-    weight: 80}]
-}]
+const dayEx = [
+  {
+    type: "Deadlift",
+    id: 1,
+    sets: [
+      {
+        reps: 10,
+        weight: 100
+      }
+    ]
+  },
+  {
+    type: "Bench Press",
+    id: 2,
+    sets: [
+      {
+        reps: 10,
+        weight: 80
+      },
+      {
+        reps: 10,
+        weight: 80
+      }
+    ]
+  }
+]
 
 
 function Day(props) {
@@ -106,9 +121,9 @@ function Day(props) {
 
       
 
-      <div className={classes.row}>
+      <div className={classes.addEx}>
         <Link to="/exercises">
-          <Fab size="small" aria-label="add" className={classes.addButton}>
+          <Fab size="medium" aria-label="add" className={classes.addButton}>
             <AddIcon />
           </Fab>
         </Link>
