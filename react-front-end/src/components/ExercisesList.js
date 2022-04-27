@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   addEx: {
     display: "flex",
     position: "fixed",
-    bottom: "60px",
+    bottom: "70px",
     margin: "2%",
     alignItems: "center"
   }

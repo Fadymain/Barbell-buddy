@@ -94,8 +94,8 @@ function Empty(props) {
 
       <div className={classes.date} >
         <ArrowBackIosIcon href="/back" onClick={() => window.location.href = '/back'} />
-        {/* <h3>Thurdsday April 28th, 2022</h3> */}
-        <h3>Wednesday April 27th, 2022</h3>
+        <h3>Thurdsday April 28th, 2022</h3>
+        {/* <h3>Wednesday April 27th, 2022</h3> */}
         <ArrowForwardIosIcon onClick={() => window.location.href = '/empty'} />
       </div>
       
