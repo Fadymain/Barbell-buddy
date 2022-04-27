@@ -13,9 +13,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   dateButton: {
-    margin: 20,
+    margin: 50,
     color: "black",
-    backgroundColor: "DeepSkyBlue"
+    backgroundColor: "DeepSkyBlue",
+    position: 'sticky'
   },
 }));
 

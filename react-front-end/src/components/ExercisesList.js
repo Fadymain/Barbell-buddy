@@ -66,13 +66,13 @@ function ExercisesList(props) {
 
   const [ exerciseType, setExerciseType ] = useState("");
 
-  const reset = function() {
-    setExerciseType("");
-  }
+  // const reset = function() {
+  //   setExerciseType("");
+  // }
 
-  const createExercise = function() {
-    props.addExercise(exerciseType)
-  }
+  // const createExercise = function() {
+  //   props.addExercise(exerciseType)
+  // }
 
   return (
     <section>

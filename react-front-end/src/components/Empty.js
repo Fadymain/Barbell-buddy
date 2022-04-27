@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     // border: "solid"
   },
   text: {
-    paddingTop: 100,
+    paddingTop: 10,
     // paddingLeft: 10,
     // textAlign: "left"
   },

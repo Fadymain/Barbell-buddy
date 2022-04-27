@@ -55,23 +55,24 @@ function PlateCalculator(props) {
 
       <h2 style={{ marginTop: 0}} >Plate Calculator</h2>
 
-      <div>
-        <form autoComplete='off' onSubmit={event => event.preventDefault()}>
-
+      <form autoComplete='off' onSubmit={event => event.preventDefault()}>
+        <div style={{ margin: 5 }}>
           <label htmlFor="weight">WEIGHT (lbs):</label>
-          <input size="4" type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
-          <label htmlFor="barbell">BARBELL:</label>
-          <input size="2" type="text" id="barbell" name="barbell" placeholder="45"/><br/>
-          {/* <div>BARBELL - DEFAULT 45lbs</div> */}
-            {/* <img
+          <input size="4" type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br />
+        </div>
+        <div style={{ margin: 5 }}>
+          <label style={{ marginRight: 10 }} htmlFor="barbell">BARBELL:</label>
+          <input size="2" type="text" id="barbell" name="barbell" placeholder="45" /><br />
+        </div>
+
+        {/* <img
               onClick={() => setCalc(plateCalculator.calculate(weight))}
               src="images/calculate.png"
               className="save"
               alt="save"
             /> */}
-            <button onClick={() => setCalc(plateCalculator.calculate(weight))} class='calc-button' >Calculate</button>
-        </form>
-      </div>
+        <button onClick={() => setCalc(plateCalculator.calculate(weight))} class='calc-button' >Calculate</button>
+      </form>
 
 
 

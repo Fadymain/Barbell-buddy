@@ -13,6 +13,7 @@ import ExerciseContext from './components/ExerciseContext';
 import Nav from './components/Nav';
 import BottomNav from './components/BottomNav';
 import Empty from './components/Empty';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const exercisesData = [
   { type: "Deadlifts", id: 1},
@@ -26,6 +27,20 @@ const App = () => {
 
   const {state} = useApplicationData();
   const [exercises, setExercises] = useState(exercisesData)
+
+  // const theme = createTheme({
+  //   typography: {
+  //     // fontFamily: ["Train One", "cursive"].join(","),
+  //     fontFamily: ["Carme", "sans-serif"].join(","),
+  //   },
+  // });
+
+  const theme = createTheme({
+    typography: {
+      // fontFamily: ["Train One", "cursive"].join(","),
+      fontFamily: ["Carme", "sans-serif"].join(","), 
+    },
+  });
 
   // fetchData = () => {
   //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
@@ -41,6 +56,7 @@ const App = () => {
   // }
 
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       {/* <button onClick={this.fetchData} > */}
       {/* Fetch Data
@@ -64,6 +80,7 @@ const App = () => {
         </Router>
       </ExerciseContext.Provider>
     </div>
+    </ThemeProvider>
   );
 }
 

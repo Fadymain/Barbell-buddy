@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subheading: {
     fontFamily: 'Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial',
-    padding: 20
+    padding: 10
   }
 }));
 

@@ -177,19 +177,21 @@ transition: all 0.5s ease 0s;
 
 .set-button {
   font-size: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; */
+  /* font-family: Carme,sans-serif; */
   line-height: 20px;
   padding: .618em 1em;
-  border-radius: 10px 10px 12px 12px;
+  border-radius: 100px;
   box-shadow:
     0px 8px 0px 0px #2980b9, /* button thickness */
     0px 0 5px rgba(255,255,255,.2) inset, /* inner glow */
-    2px 30px 0px rgba(255,255,255,.1) inset, /* sublte reflection */
+    2px 10px 0px rgba(255,255,255,.1) inset, /* sublte reflection */
     5px 15px 10px -10px #000; /* dark shadow underneath */
   border: 1px solid #2980b9;
   cursor: pointer;
-  background: #3498db;
-  color: #ecf0f1;
+  /* background: #3498db; */
+  background-color: deepskyblue;
+  /* color: #ecf0f1; */
   text-shadow: 1px 1px 1px #34495e;
   transform: rotateX(5deg);
   margin: 10px 10px;

@@ -10,7 +10,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
-import { makeStyles, Paper, Box, Typography, Fab } from '@material-ui/core';
+import { makeStyles, Paper, Box, Fab } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DoneIcon from '@material-ui/icons/Done';
 
