@@ -1,7 +1,5 @@
 import React from 'react'
-
 import { makeStyles } from '@material-ui/core/styles';
-
 // import Card from '@material-ui/core/Card';
 // import CardContent from '@material-ui/core/CardContent';
 // import Button from '@material-ui/core/Button';
@@ -16,16 +14,7 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12,
-  },
-  root: {
-    minWidth: 275,
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
+  }
 });
 
 // const useStyles = makeStyles((theme) => ({
@@ -39,11 +28,11 @@ const useStyles = makeStyles({
 
 const DayListItem = (props) => {
 
-  // const classes = useStyles();
+  const classes = useStyles();
 
   return (
 
-    <section className="savedExc">
+    <section className={classes.savedExc}>
 
       <Typography variant="body2" component="p">
         Set 1 - {props.reps} Reps @ {props.weight}
