@@ -38,6 +38,13 @@ const useStyles = makeStyles((theme) => ({
   excButton: {
     padding: 5,
     // fontFamily: ""
+  },
+  addEx: {
+    display: "flex",
+    position: "fixed",
+    bottom: "60px",
+    margin: "2%",
+    alignItems: "center"
   }
 }));
 
@@ -84,23 +91,15 @@ function ExercisesList(props) {
         {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
-      <form autoComplete='off' onSubmit={event => event.preventDefault()} >
+      <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
         <Link to="/exercises">
           <Fab size="medium" aria-label="add" className={classes.addButton} onClick={() => console.log(exerciseType)}>
             <AddIcon />
           </Fab>
         </Link>
-        <label htmlFor="exercise">Add Exercise:</label>
+        <label htmlFor="exercise">Add Exercise</label>
         <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
       </form>
-
-
-      {/* <div className={classes.addEx}>
-
-        <h3>Add Exercise</h3>
-      </div> */}
-
-
 
       <BottomNav />
 

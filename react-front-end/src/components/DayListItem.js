@@ -30,8 +30,6 @@ const DayListItem = (props) => {
 
   const classes = useStyles();
 
-  // console.log("props:", props)
-
   return (
 
     <section className={classes.savedExc}>
