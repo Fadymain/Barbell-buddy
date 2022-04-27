@@ -51,64 +51,84 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const dayEx = [
+  {
+    type: "Overhead Press",
+    id: 1,
+    sets: [
+      {
+        reps: 10,
+        weight: 45
+      },
+      {
+        reps: 10,
+        weight: 45
+      },
+      {
+        reps: 10,
+        weight: 45
+      },
+      {
+        reps: 10,
+        weight: 55
+      },
+      {
+        reps: 10,
+        weight: 45
+      }
+    ]
+  },
+  {
+    type: "Lunges",
+    id: 2,
+    sets: [
+      {
+        reps: 10,
+        weight: 60
+      },
+      {
+        reps: 10,
+        weight: 70
+      },
+      {
+        reps: 10,
+        weight: 80
+      }
+    ]
+  }
+]
+
 // const dayEx = [
 //   {
 //     type: "Deadlift",
 //     id: 1,
 //     sets: [
 //       {
-//         reps: 10,
-//         weight: 100
-//       }
-//     ]
-//   },
-//   {
-//     type: "Bench Press",
-//     id: 2,
-//     sets: [
-//       {
-//         reps: 10,
-//         weight: 80
+//         reps: 5,
+//         weight: 180
 //       },
 //       {
-//         reps: 10,
-//         weight: 80
+//         reps: 5,
+//         weight: 180
+//       },
+//       {
+//         reps: 5,
+//         weight: 190
+//       },
+//       {
+//         reps: 5,
+//         weight: 190
+//       },
+//       {
+//         reps: 1,
+//         weight: 200
 //       }
 //     ]
 //   }
 // ]
 
-const dayEx = [
-  {
-    type: "Deadlift",
-    id: 1,
-    sets: [
-      {
-        reps: 5,
-        weight: 180
-      },
-      {
-        reps: 5,
-        weight: 180
-      },
-      {
-        reps: 5,
-        weight: 190
-      },
-      {
-        reps: 5,
-        weight: 190
-      },
-      {
-        reps: 1,
-        weight: 200
-      }
-    ]
-  }
-]
 
-
-function Day(props) {
+function Back(props) {
 
   const classes = useStyles();
 
@@ -122,9 +142,10 @@ function Day(props) {
       <Nav />
 
       <div className={classes.date} >
-        <ArrowBackIosIcon onClick={() => window.location.href = '/back'}/>
+        <ArrowBackIosIcon onClick={() => window.location.href = '/back'} />
         {/* <h3>Thurdsday April 28th, 2022</h3> */}
-        <h3>Wednesday April 27th, 2022</h3>
+        {/* <h3>Wednesday April 27th, 2022</h3> */}
+        <h3>Tuesday April 26th, 2022</h3>
         <ArrowForwardIosIcon onClick={() => window.location.href = '/empty'} />
       </div>
       
@@ -161,4 +182,4 @@ function Day(props) {
 
 }
 
-export default Day;
+export default Back;
