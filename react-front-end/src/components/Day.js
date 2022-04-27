@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from "react-router-dom"
 import DayListItem from './DayListItem';
@@ -8,7 +8,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
 import EditIcon from '@material-ui/icons/Edit';
-
+import ExerciseContext from './ExerciseContext';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -117,13 +117,17 @@ function Day(props) {
     return (<div key={ex.id}><h4>{ex.type}</h4>{setList}</div>)
   })
 
+  const {day2} = useContext(ExerciseContext);
+
+  console.log("day2:", day2);
+
   return (
     <section className="day">
       <Nav />
 
       <div className={classes.date} >
         <ArrowBackIosIcon onClick={() => window.location.href = '/back'}/>
-        <h3>Thurdsday April 28th, 2022</h3>
+        <h3>{day2.toISOString()}</h3>
         {/* <h3>Wednesday April 27th, 2022</h3> */}
         <ArrowForwardIosIcon onClick={() => window.location.href = '/empty'} />
       </div>

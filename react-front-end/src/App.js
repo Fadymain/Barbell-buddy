@@ -27,7 +27,8 @@ const exercisesData = [
 const App = () => {
 
   const {state} = useApplicationData();
-  const [exercises, setExercises] = useState(exercisesData)
+  const [exercises, setExercises] = useState(exercisesData);
+  const [day2, setDay2] = useState(new Date());
 
   // const theme = createTheme({
   //   typography: {
@@ -35,6 +36,8 @@ const App = () => {
   //     fontFamily: ["Carme", "sans-serif"].join(","),
   //   },
   // });
+
+  const data = {exercises, setExercises, day2, setDay2};
 
   const theme = createTheme({
     typography: {
@@ -67,7 +70,7 @@ const App = () => {
       {/* Fetch Data
         </button>     */}
       {/* <Button/>     */}
-      <ExerciseContext.Provider value={exercises}>
+      <ExerciseContext.Provider value={data}>
         <Router>
           <Routes>
             <Route path="/" element={<IntroScreen />} />

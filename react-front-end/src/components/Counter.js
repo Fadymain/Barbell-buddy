@@ -46,7 +46,7 @@ function Counter(props) {
   const [reps, setReps] = useState(0);
   const [weight, setWeight] = useState(0);
   const [completed, updateCompleted] = useState([]);
-  const exercises = useContext(ExerciseContext);
+  const {exercises} = useContext(ExerciseContext);
 
   const params = useParams();
   const exercise = exercises.find((item) => item.id == params.id)

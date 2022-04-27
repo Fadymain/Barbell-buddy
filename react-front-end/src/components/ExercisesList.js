@@ -62,7 +62,7 @@ function ExercisesList(props) {
 
   const classes = useStyles();
   // const { id } = useParams();
-  const exercises = useContext(ExerciseContext);
+  const {exercises} = useContext(ExerciseContext);
 
   const [ exerciseType, setExerciseType ] = useState("");
 
