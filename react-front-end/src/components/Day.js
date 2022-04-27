@@ -84,24 +84,24 @@ const dayEx = [
     id: 1,
     sets: [
       {
-        reps: 10,
-        weight: 100
+        reps: 5,
+        weight: 180
       },
       {
-        reps: 10,
-        weight: 120
+        reps: 5,
+        weight: 180
       },
       {
-        reps: 10,
-        weight: 130
+        reps: 5,
+        weight: 190
       },
       {
-        reps: 10,
-        weight: 140
+        reps: 5,
+        weight: 190
       },
       {
-        reps: 10,
-        weight: 150
+        reps: 1,
+        weight: 200
       }
     ]
   }

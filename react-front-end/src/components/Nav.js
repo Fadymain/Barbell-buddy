@@ -31,7 +31,7 @@ const Nav = () => {
     <div className="Nav">
       <AppBar position="sticky" className={classes.header}>
         <Toolbar >
-          <img src="/images/barbell.png" alt="barbell" style={{ height: "30px" }} />
+          <img src="/images/barbell.png" alt="barbell" style={{ height: "30px" }} onClick={() => window.location.href = '/intro'} />
           <Typography className={classes.font} > Barbell Buddy </Typography>
           <AccountCircleIcon className={classes.profileIcon} />
         </Toolbar>

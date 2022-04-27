@@ -116,7 +116,7 @@ function Counter(props) {
         </div>
 
         <div className="saveButton" style={{ position: "fixed", right: "10px", bottom: "70px", }} >
-          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton}>
+          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton} onClick={() => window.location.href = '/day'}>
             <DoneIcon /> SAVE
           </Fab>
         </div>

@@ -88,7 +88,7 @@ function ExercisesList(props) {
 
       <h1 style={{marginTop: 0}}>Select Exercise:</h1> 
       <div>
-        {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
+        {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
       <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
