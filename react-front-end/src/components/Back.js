@@ -65,16 +65,16 @@ const dayEx = [
         weight: 45
       },
       {
-        reps: 10,
-        weight: 45
-      },
-      {
-        reps: 10,
+        reps: 5,
         weight: 55
       },
       {
-        reps: 10,
-        weight: 45
+        reps: 5,
+        weight: 55
+      },
+      {
+        reps: 5,
+        weight: 65
       }
     ]
   },

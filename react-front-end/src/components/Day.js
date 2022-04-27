@@ -100,7 +100,7 @@ const dayEx = [
         weight: 190
       },
       {
-        reps: 1,
+        reps: 2,
         weight: 200
       }
     ]
