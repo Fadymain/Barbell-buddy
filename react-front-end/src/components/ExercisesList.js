@@ -7,7 +7,8 @@ import BottomNav from './BottomNav';
 import Nav from './Nav';
 import { makeStyles, Fab, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-
+// import CustomizedDialogs from './FormDialog';
+import FormDialog from './FormDialog';
 
 const useStyles = makeStyles((theme) => ({
   addButton: {
@@ -38,13 +39,6 @@ const useStyles = makeStyles((theme) => ({
   excButton: {
     padding: 5,
     // fontFamily: ""
-  },
-  addEx: {
-    display: "flex",
-    position: "fixed",
-    bottom: "70px",
-    margin: "2%",
-    alignItems: "center"
   }
 }));
 
@@ -91,15 +85,22 @@ function ExercisesList(props) {
         {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
-      <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
-        <Link to="/exercises">
+      {/* <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} > */}
+        {/* <Link to="/exercises">
           <Fab size="medium" aria-label="add" className={classes.addButton} onClick={() => console.log(exerciseType)}>
             <AddIcon />
           </Fab>
-        </Link>
-        <label htmlFor="exercise"><Typography>Add Exercise</Typography></label>
+        </Link> */}
+        {/* <label htmlFor="exercise"><Typography>Add Exercise</Typography></label> */}
         {/* <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} /> */}
+      {/* </form> */}
+
+      <FormDialog>
+      <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
+        <label htmlFor="exercise"><Typography>Add Exercise</Typography></label>
+        <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
       </form>
+      </FormDialog>
 
       <BottomNav />
 
