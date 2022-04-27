@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
     // border: "solid"
   },
   text: {
-    paddingBottom: 20,
-    paddingLeft: 10,
-    textAlign: "left"
+    paddingTop: 100,
+    // paddingLeft: 10,
+    // textAlign: "left"
   },
   addExc: {
     display: "flex",
@@ -107,7 +107,7 @@ function Empty(props) {
       <div className={classes.root}>
         <Paper className={classes.paper} elevation={5}>
           <Box className={classes.box} p={1}>
-            <Typography> NO WORKOUT RECORDED</Typography>
+            <Typography className={classes.text}> NO WORKOUT RECORDED</Typography>
           </Box>
         </Paper>
       </div>
