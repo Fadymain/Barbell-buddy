@@ -30,7 +30,7 @@ function CalendarPage() {
 
       <Calendar />
       
-        <Fab size="large" variant="extended" className={classes.dateButton} href="/day" >
+        <Fab size="large" variant="extended" className={classes.dateButton} href="/empty" >
           SELECT DATE
         </Fab>
 

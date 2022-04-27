@@ -35,7 +35,7 @@ const DayListItem = (props) => {
     <section className={classes.savedExc}>
 
       <Typography variant="body2" component="p">
-        Set 1 - {props.reps} Reps @ {props.weight}
+        Set 1 - {props.reps} Reps @ {props.weight} lbs
       </Typography>
 
       {/* <Card className={classes.root} variant="outlined">

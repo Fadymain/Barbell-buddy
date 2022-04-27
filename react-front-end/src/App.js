@@ -12,6 +12,7 @@ import PlateCalculator from './components/PlateCalculator';
 import ExerciseContext from './components/ExerciseContext';
 import Nav from './components/Nav';
 import BottomNav from './components/BottomNav';
+import Empty from './components/Empty';
 
 const exercisesData = [
   { type: "Deadlifts", id: 1},
@@ -50,6 +51,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<IntroScreen />} />
             <Route path="/intro" element={<IntroScreen />} />
+            <Route path="/empty" element={<Empty />} />
             <Route path="/day" element={<Day />} />
             <Route path="/exercises" element={<ExercisesList />} />
             <Route path="/counter/:id" element={<Counter />} />
