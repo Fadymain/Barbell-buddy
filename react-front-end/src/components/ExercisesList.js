@@ -5,7 +5,7 @@ import ExerciseContext from './ExerciseContext';
 import "./ExerciseList.css"
 import BottomNav from './BottomNav';
 import Nav from './Nav';
-import { makeStyles, Fab } from '@material-ui/core';
+import { makeStyles, Fab, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 
@@ -97,8 +97,8 @@ function ExercisesList(props) {
             <AddIcon />
           </Fab>
         </Link>
-        <label htmlFor="exercise">Add Exercise</label>
-        <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
+        <label htmlFor="exercise"><Typography>Add Exercise</Typography></label>
+        {/* <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} /> */}
       </form>
 
       <BottomNav />

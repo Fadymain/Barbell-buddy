@@ -3,12 +3,14 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   headerText: {
-    fontFamily: "Gill Sans",
-    fontSize: "60px"
+    // fontFamily: "Gill Sans",
+    fontFamily: ["Carme", "sans-serif"].join(","),
+    fontWeight: "2000",
+    fontSize: "70px"
   },
   subheading: {
     fontFamily: 'Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial',
-    padding: 10
+    padding: 40
   }
 }));
 

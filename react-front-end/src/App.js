@@ -41,6 +41,10 @@ const App = () => {
       // fontFamily: ["Train One", "cursive"].join(","),
       fontFamily: ["Carme", "sans-serif"].join(","), 
     },
+    h1: {
+      // fontFamily: ["Train One", "cursive"].join(","),
+      fontFamily: ["Carme", "sans-serif"].join(","), 
+    },
   });
 
   // fetchData = () => {
