@@ -30,12 +30,14 @@ const DayListItem = (props) => {
 
   const classes = useStyles();
 
+  // console.log("props:", props)
+
   return (
 
     <section className={classes.savedExc}>
 
       <Typography variant="body2" component="p">
-        Set 1 - {props.reps} Reps @ {props.weight} lbs
+        Set {props.index} - {props.reps} Reps @ {props.weight} lbs
       </Typography>
 
       {/* <Card className={classes.root} variant="outlined">

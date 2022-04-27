@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: "auto",
       width: "75%",
-      height: "auto",
+      height: "250px",
     }
   },
   paper: {

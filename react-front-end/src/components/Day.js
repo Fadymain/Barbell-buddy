@@ -51,6 +51,33 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// const dayEx = [
+//   {
+//     type: "Deadlift",
+//     id: 1,
+//     sets: [
+//       {
+//         reps: 10,
+//         weight: 100
+//       }
+//     ]
+//   },
+//   {
+//     type: "Bench Press",
+//     id: 2,
+//     sets: [
+//       {
+//         reps: 10,
+//         weight: 80
+//       },
+//       {
+//         reps: 10,
+//         weight: 80
+//       }
+//     ]
+//   }
+// ]
+
 const dayEx = [
   {
     type: "Deadlift",
@@ -59,20 +86,22 @@ const dayEx = [
       {
         reps: 10,
         weight: 100
-      }
-    ]
-  },
-  {
-    type: "Bench Press",
-    id: 2,
-    sets: [
-      {
-        reps: 10,
-        weight: 80
       },
       {
         reps: 10,
-        weight: 80
+        weight: 120
+      },
+      {
+        reps: 10,
+        weight: 130
+      },
+      {
+        reps: 10,
+        weight: 140
+      },
+      {
+        reps: 10,
+        weight: 150
       }
     ]
   }
@@ -84,7 +113,7 @@ function Day(props) {
   const classes = useStyles();
 
   const exList = dayEx.map((ex) =>{
-    const setList = ex.sets.map((set, index) => <DayListItem key={index} {...set} />)
+    const setList = ex.sets.map((set, index) => <DayListItem key={index} index={index +1} {...set} />)
     return (<div key={ex.id}><h4>{ex.type}</h4>{setList}</div>)
   })
 
