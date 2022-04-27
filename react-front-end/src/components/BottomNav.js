@@ -25,7 +25,7 @@ const BottomNav = () => {
   return (
 
     <BottomNavigation
-      value={value}
+      // value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
       }}
