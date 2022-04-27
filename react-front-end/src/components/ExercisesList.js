@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
@@ -57,6 +57,16 @@ function ExercisesList(props) {
   // const { id } = useParams();
   const exercises = useContext(ExerciseContext);
 
+  const [ exerciseType, setExerciseType ] = useState("");
+
+  const reset = function() {
+    setExerciseType("");
+  }
+
+  const createExercise = function() {
+    props.addExercise(exerciseType)
+  }
+
   return (
     <section>
       <Nav />
@@ -74,14 +84,23 @@ function ExercisesList(props) {
         {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
-      <div className={classes.addEx}>
+      <form autoComplete='off' onSubmit={event => event.preventDefault()} >
         <Link to="/exercises">
-          <Fab size="medium" aria-label="add" className={classes.addButton}>
+          <Fab size="medium" aria-label="add" className={classes.addButton} onClick={() => console.log(exerciseType)}>
             <AddIcon />
           </Fab>
         </Link>
+        <label htmlFor="exercise">Add Exercise:</label>
+        <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
+      </form>
+
+
+      {/* <div className={classes.addEx}>
+
         <h3>Add Exercise</h3>
-      </div>
+      </div> */}
+
+
 
       <BottomNav />
 
