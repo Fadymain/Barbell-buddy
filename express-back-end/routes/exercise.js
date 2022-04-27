@@ -35,11 +35,11 @@ module.exports = (db) => {
   router.post("/add", (req, res) => {
     const {type, description} = req.body
     if(description) {
-      db.query(`INSERT INTO exercises (type, description) VALUES ($1, $2, $3, $4) RETURNING *;`, [type, description ,reps, weight])
+      db.query(`INSERT INTO exercises (type, description) VALUES ($1, $2) RETURNING *;`, [type, description])
         .then(data => {
           const regExercise = data.rows;
           console.log("created exercise", regExercise);
-          res.status(204).json({});
+          res.status(204).json({id: regExercise.id});
         });
     } else {
       db.query(`INSERT INTO exercises (type) VALUES ($1) RETURNING *;`, [type])
