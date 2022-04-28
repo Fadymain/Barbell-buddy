@@ -37,16 +37,16 @@ module.exports = (db) => {
      if (day_at){
       db.query(`INSERT INTO workouts (user_id, day_at, exercise_id, reps, weight) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [user_id, day_at, exercise_id, reps, weight])
         .then(data => {
-          const regWorkout = data.rows;
+          const regWorkout = data.rows[0];
           console.log("created workout", regWorkout);
-          res.status(204).json({});
+          res.status(200).json({regWorkout: regWorkout});
         });
      } else {
       db.query(`INSERT INTO workouts (user_id, exercise_id, reps, weight) VALUES ($1, $2, $3, $4) RETURNING *;`, [user_id, exercise_id, reps, weight])
       .then(data => {
-        const regWorkout = data.rows;
+        const regWorkout = data.rows[0];
         console.log("created workout", regWorkout);
-        res.status(204).json({});
+        res.status(200).json({regWorkout: regWorkout});
       });
      }
     

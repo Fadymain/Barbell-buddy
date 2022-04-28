@@ -37,16 +37,17 @@ module.exports = (db) => {
     if(description) {
       db.query(`INSERT INTO exercises (type, description) VALUES ($1, $2) RETURNING *;`, [type, description])
         .then(data => {
-          const regExercise = data.rows;
+          console.log("add data", data);
+          const regExercise = data.rows[0];
           console.log("created exercise", regExercise);
-          res.status(204).json({id: regExercise.id});
+          res.status(200).json({exercise: regExercise});
         });
     } else {
       db.query(`INSERT INTO exercises (type) VALUES ($1) RETURNING *;`, [type])
       .then(data => {
-        const regExercise = data.rows;
+        const regExercise = data.rows[0];
         console.log("created exercise", regExercise);
-        res.status(204).json({});
+        res.status(200).json({exercise: regExercise});
       });
     }
 
