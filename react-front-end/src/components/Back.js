@@ -1,4 +1,5 @@
-import React, {useContext,useState,useEffect} from 'react';
+
+import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from "react-router-dom"
 import DayListItem from './DayListItem';
@@ -8,8 +9,8 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
 import EditIcon from '@material-ui/icons/Edit';
-import ExerciseContext from './ExerciseContext';
-import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes} from "../helpers/selectors";
+
+
 
 const useStyles = makeStyles((theme) => ({
   date: {
@@ -51,103 +52,101 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const dayEx = [
+  {
+    type: "Overhead Press",
+    id: 1,
+    sets: [
+      {
+        reps: 10,
+        weight: 45
+      },
+      {
+        reps: 10,
+        weight: 45
+      },
+      {
+        reps: 5,
+        weight: 55
+      },
+      {
+        reps: 5,
+        weight: 55
+      },
+      {
+        reps: 5,
+        weight: 65
+      }
+    ]
+  },
+  {
+    type: "Lunges",
+    id: 2,
+    sets: [
+      {
+        reps: 10,
+        weight: 60
+      },
+      {
+        reps: 10,
+        weight: 70
+      },
+      {
+        reps: 10,
+        weight: 80
+      }
+    ]
+  }
+]
+
 // const dayEx = [
 //   {
 //     type: "Deadlift",
 //     id: 1,
 //     sets: [
 //       {
-//         reps: 10,
-//         weight: 100
-//       }
-//     ]
-//   },
-//   {
-//     type: "Bench Press",
-//     id: 2,
-//     sets: [
-//       {
-//         reps: 10,
-//         weight: 80
+//         reps: 5,
+//         weight: 180
 //       },
 //       {
-//         reps: 10,
-//         weight: 80
+//         reps: 5,
+//         weight: 180
+//       },
+//       {
+//         reps: 5,
+//         weight: 190
+//       },
+//       {
+//         reps: 5,
+//         weight: 190
+//       },
+//       {
+//         reps: 1,
+//         weight: 200
 //       }
 //     ]
 //   }
 // ]
 
-const dayEx = [
-  {
-    type: "Deadlift",
-    id: 1,
-    sets: [
-      {
-        reps: 5,
-        weight: 180
-      },
-      {
-        reps: 5,
-        weight: 180
-      },
-      {
-        reps: 5,
-        weight: 190
-      },
-      {
-        reps: 5,
-        weight: 190
-      },
-      {
-        reps: 2,
-        weight: 200
-      }
-    ]
-  }
-]
 
-
-function Day(props) {
+function Back(props) {
 
   const classes = useStyles();
-  const [repType, setRepType] = useState([]);
-  const {exercises, setExercises, day2, setDay2,state} = useContext(ExerciseContext);
-  const dailyWorkout = getAllWorkoutsForDay(state, day2.toISOString());
-  console.log("daily workout", dailyWorkout);
-  const exercisesListForDay = dailyWorkout.map((set,index) => {
-    const exerciseTypes = getAllExerciseTypes(state, set);
-    console.log("exercise type", exerciseTypes);
-    
-    useEffect(() => {
-      setRepType((prev) =>({...prev,exerciseTypes}) );
-    },[]);
-    return(<DayListItem key={set.id} index={index +1} reps={set.reps} weight={set.weight}/>)
-    
-  })
-  console.log("repType",repType);
-  
-  const checkExTypes = repType.map((ex,index) => {
-    console.log("state item", ex.id)
-    return(<div key={ex.id}><h4>{ex.exerciseItem.type}</h4>{exercisesListForDay}</div>);
-  })
+
   const exList = dayEx.map((ex) =>{
     const setList = ex.sets.map((set, index) => <DayListItem key={index} index={index +1} {...set} />)
     return (<div key={ex.id}><h4>{ex.type}</h4>{setList}</div>)
   })
-
-  
-
-  console.log("day2:", day2);
 
   return (
     <section className="day">
       <Nav />
 
       <div className={classes.date} >
-        <ArrowBackIosIcon onClick={() => window.location.href = '/back'}/>
-        <h3>{day2.toISOString().slice(0,10)}</h3>
-        {/* <h3>Wednesday April 27th, 2022</h3> */}
+        <ArrowBackIosIcon onClick={() => window.location.href = '/back'} />
+        {/* <h3>Thurdsday April 28th, 2022</h3> */}
+        <h3>Wednesday April 27th, 2022</h3>
+        {/* <h3>Tuesday April 26th, 2022</h3> */}
         <ArrowForwardIosIcon onClick={() => window.location.href = '/empty'} />
       </div>
       
@@ -160,7 +159,7 @@ function Day(props) {
       <div className={classes.root}>
         <Paper className={classes.paper} elevation={5}>
           <Box className={classes.box} p={1}>
-            <Typography className={classes.text} >{exercisesListForDay}</Typography>
+            <Typography className={classes.text} >{exList}</Typography>
             <div style={{paddingLeft: 10}} className={classes.text}>
               <EditIcon /> Notes
             </div>
@@ -184,4 +183,4 @@ function Day(props) {
 
 }
 
-export default Day;
+export default Back;

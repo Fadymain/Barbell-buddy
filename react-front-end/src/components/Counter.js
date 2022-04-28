@@ -10,7 +10,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
-import { makeStyles, Paper, Box, Typography, Fab } from '@material-ui/core';
+import { makeStyles, Paper, Box, Fab } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import DoneIcon from '@material-ui/icons/Done';
 
@@ -46,7 +46,7 @@ function Counter(props) {
   const [reps, setReps] = useState(0);
   const [weight, setWeight] = useState(0);
   const [completed, updateCompleted] = useState([]);
-  const exercises = useContext(ExerciseContext);
+  const {exercises} = useContext(ExerciseContext);
 
   const params = useParams();
   const exercise = exercises.find((item) => item.id == params.id)
@@ -116,7 +116,7 @@ function Counter(props) {
         </div>
 
         <div className="saveButton" style={{ position: "fixed", right: "10px", bottom: "70px", }} >
-          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton}>
+          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton} onClick={() => window.location.href = '/day'}>
             <DoneIcon /> SAVE
           </Fab>
         </div>

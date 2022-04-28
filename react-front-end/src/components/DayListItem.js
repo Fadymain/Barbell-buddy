@@ -35,16 +35,14 @@ const DayListItem = (props) => {
     <section className={classes.savedExc}>
 
       <Typography variant="body2" component="p">
-        Set 1 - {props.reps} Reps @ {props.weight}
+        Set {props.index} - {props.reps} Reps @ {props.weight} lbs
       </Typography>
 
       {/* <Card className={classes.root} variant="outlined">
         <CardContent>
-
           <Typography variant="h5" component="h2">
             Squats
           </Typography>
-
           <Typography variant="body2" component="p">
             Set 1 - 20 Reps @ 45lb<br />
             Set 2 - 15 Reps @ 90lb<br />
@@ -53,14 +51,11 @@ const DayListItem = (props) => {
           </Typography>
         </CardContent>
       </Card>
-
       <Card className={classes.root} variant="outlined">
         <CardContent>
-
           <Typography variant="h5" component="h2">
             Deadlift
           </Typography>
-
           <Typography variant="body2" component="p">
             Set 1 - 5 Reps @ 135lb<br />
             Set 2 - 5 Reps @ 135lb<br />

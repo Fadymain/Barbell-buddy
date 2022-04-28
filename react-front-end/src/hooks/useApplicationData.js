@@ -20,7 +20,7 @@ export default function useApplicationData() {
         ...prev,
         users: all[0].data.allusers,
         workouts: all[1].data.allWorkouts,
-        exercise: all[2].data.allExercises
+        exercises: all[2].data.allExercises
       }))
     })
   }, []);
@@ -28,7 +28,24 @@ export default function useApplicationData() {
   const addUser = function(name, email, password) {
     
    return axios.post(`http://localhost:8080/api/users/add`,{name, email, password})
-   .then(() => {
+   .then((data) => {
+     const newUserID = data.data.regUser.id;
+     const newUser = {
+       id: newUserID,
+       name: name,
+       email: email,
+       password: password,
+       created_at: data.data.regUser.created_at,
+       active_user: data.data.regUser.active_user
+     }
+     const users = {
+      ...state.users,
+      [newUserID]: newUser
+     }
+     setState(({
+      ...state.users,
+      users
+    }));
 
    })
   }
@@ -37,36 +54,77 @@ export default function useApplicationData() {
     
     return axios.post(`http://localhost:8080/api/exercise/add`,{type, description})
     .then((data) => {
-      console.log("added exercise",data);
-      /*
-      const newExerciseID = data;
+      console.log("added exercise",data.data.exercise);
+      
+      const newExerciseID = data.data.exercise.id;
       const newExercise = {
-        id:data,
+        id:newExerciseID,
         type: type, 
         description: description,
         active_exercise: true
       }
+      const exercises = {
+        ...state.exercises,
+        [newExerciseID]: newExercise
+      }
+      console.log("newExercise",newExercise);
+      console.log("states", state.exercises);
       
-      setState({
+      setState(({
         ...state,
-        newExercise
-      });
-      */
+        exercises
+      }));
+      
     })
    }
   
   const addDateWorkout = function(user_id, day_at, exercise_id, reps, weight) {
     
     return axios.post(`http://localhost:8080/api/workouts/add`,{user_id, day_at, exercise_id, reps, weight})
-    .then(() => {
- 
+    .then((data) => {
+      const newWorkoutId = data.data.regWorkout.id;
+      const newWorkout = {
+        id: newWorkoutId,
+        user_id: user_id, 
+        day_at: data.data.regWorkout.day_at, 
+        exercise_id: exercise_id,
+        reps: reps,
+        weight: weight
+      }
+      const workouts = {
+        ...state.workouts,
+        [newWorkoutId]: newWorkout
+      }
+
+      setState(({
+        ...state,
+        workouts
+      }));
+
     })
    }
   const addWorkout = function(user_id, exercise_id, reps, weight) {
     
     return axios.post(`http://localhost:8080/api/workouts/add`,{user_id, exercise_id, reps, weight})
-    .then(() => {
- 
+    .then((data) => {
+      const newWorkoutId = data.data.regWorkout.id;
+      const newWorkout = {
+        id: newWorkoutId,
+        user_id: user_id, 
+        day_at: data.data.regWorkout.day_at, 
+        exercise_id: exercise_id,
+        reps: reps,
+        weight: weight
+      }
+      const workouts = {
+        ...state.workouts,
+        [newWorkoutId]: newWorkout
+      }
+
+      setState(({
+        ...state,
+        workouts
+      }));
     })
    }
    

@@ -12,6 +12,9 @@ import PlateCalculator from './components/PlateCalculator';
 import ExerciseContext from './components/ExerciseContext';
 import Nav from './components/Nav';
 import BottomNav from './components/BottomNav';
+import Empty from './components/Empty';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import Back from './components/Back';
 
 const exercisesData = [
   { type: "Deadlifts", id: 1},
@@ -24,7 +27,22 @@ const exercisesData = [
 const App = () => {
 
   const {state,addUser,addExercise,addWorkout,addDateWorkout} = useApplicationData();
-  const [exercises, setExercises] = useState(exercisesData)
+  const [exercises, setExercises] = useState(exercisesData);
+  const [day2, setDay2] = useState(new Date());
+  const [addNewWorkout, setNewWorkout] = useState("");
+
+  const data = {exercises, setExercises, day2, setDay2,state,addUser,addExercise,addWorkout,addDateWorkout};
+
+  const theme = createTheme({
+    typography: {
+      // fontFamily: ["Train One", "cursive"].join(","),
+      fontFamily: ["Carme", "sans-serif"].join(","), 
+    },
+    h1: {
+      // fontFamily: ["Train One", "cursive"].join(","),
+      fontFamily: ["Carme", "sans-serif"].join(","), 
+    },
+  });
 
   // fetchData = () => {
   //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
@@ -45,18 +63,21 @@ const App = () => {
   addExercise("bench press");
   */
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       {/* <button onClick={this.fetchData} > */}
       {/* Fetch Data
         </button>     */}
       {/* <Button/>     */}
-      <ExerciseContext.Provider value={exercises}>
+      <ExerciseContext.Provider value={data}>
         <Router>
           <Routes>
             <Route path="/" element={<IntroScreen />} />
             <Route path="/intro" element={<IntroScreen />} />
+            <Route path="/empty" element={<Empty />} />
             <Route path="/day" element={<Day />} />
-            <Route path="/exercises" element={<ExercisesList addExercise={addExercise} />} />
+            <Route path="/back" element={<Back />} />
+            <Route path="/exercises" element={<ExercisesList />} />
             <Route path="/counter/:id" element={<Counter />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/login" element={<Login />} />
@@ -67,6 +88,7 @@ const App = () => {
         </Router>
       </ExerciseContext.Provider>
     </div>
+    </ThemeProvider>
   );
 }
 
