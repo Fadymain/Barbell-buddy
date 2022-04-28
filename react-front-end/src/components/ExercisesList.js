@@ -6,7 +6,7 @@ import "./ExerciseList.css"
 import BottomNav from './BottomNav';
 import Nav from './Nav';
 import { makeStyles, Fab, Typography } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+// import AddIcon from '@material-ui/icons/Add';
 // import CustomizedDialogs from './FormDialog';
 import FormDialog from './FormDialog';
 
