@@ -86,7 +86,7 @@ function ExercisesList(props) {
 
       <form autoComplete='off' onSubmit={event => event.preventDefault()} >
         <Link to="/exercises">
-          <Fab size="medium" aria-label="add" className={classes.addButton} onClick={() => console.log(exerciseType)}>
+          <Fab size="medium" aria-label="add" className={classes.addButton} onClick={() => createExercise()}>
             <AddIcon />
           </Fab>
         </Link>

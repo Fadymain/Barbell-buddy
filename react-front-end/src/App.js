@@ -23,7 +23,7 @@ const exercisesData = [
 
 const App = () => {
 
-  const {state} = useApplicationData();
+  const {state,addUser,addExercise,addWorkout,addDateWorkout} = useApplicationData();
   const [exercises, setExercises] = useState(exercisesData)
 
   // fetchData = () => {
@@ -38,7 +38,12 @@ const App = () => {
   //     });
   //   }) 
   // }
-
+  /*
+  const createExercise = function(type) {
+    addExercise("bench press");
+  }
+  addExercise("bench press");
+  */
   return (
     <div className="App">
       {/* <button onClick={this.fetchData} > */}
@@ -51,7 +56,7 @@ const App = () => {
             <Route path="/" element={<IntroScreen />} />
             <Route path="/intro" element={<IntroScreen />} />
             <Route path="/day" element={<Day />} />
-            <Route path="/exercises" element={<ExercisesList />} />
+            <Route path="/exercises" element={<ExercisesList addExercise={addExercise} />} />
             <Route path="/counter/:id" element={<Counter />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/login" element={<Login />} />

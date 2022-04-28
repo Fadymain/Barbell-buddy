@@ -5,11 +5,12 @@
 
 export function getWorkoutsForUser(state, userID) {
   const userExercise = [];
-  for(const user in state.users) {
-    if(user. === dayDate) {
-      completedExercise[...workout]
+  for(const userWorkouts in state.workouts) {
+    if(userWorkouts.user_id === userID) {
+      userExercise[...userWorkouts]
     }
   }
+  return userExercise;
 
 
 
@@ -25,6 +26,29 @@ export function getAllWorkoutsForDay(state, dayDate) {
   return completedExercise;
 }
 
-export function getAllExerciseTypes(state,exerciseType) {
-  const exerciseType = 
+export function getAllExerciseTypes(state,exerciseTypes) {
+  /*
+  const exercises = [];
+
+  for(const exerciseInfo in state.exercises) {
+    if(exerciseInfo.id === dayDate) {
+      exercises[...workout]
+    }
+  }
+  return exercises;
+*/
+  if (!exerciseTypes) {
+    return null;
+  }
+
+  const exerciseID = exerciseTypes.id;
+  const exerciseCollection = state.exercises;
+  const exerciseItem = exerciseCollection[exerciseID];
+
+  const exerciseContents = {
+    ...exerciseTypes,
+    exerciseItem
+  };
+
+  return exerciseContents;
 }

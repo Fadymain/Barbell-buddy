@@ -36,8 +36,22 @@ export default function useApplicationData() {
   const addExercise = function(type, description = 'description') {
     
     return axios.post(`http://localhost:8080/api/exercise/add`,{type, description})
-    .then(() => {
- 
+    .then((data) => {
+      console.log("added exercise",data);
+      /*
+      const newExerciseID = data;
+      const newExercise = {
+        id:data,
+        type: type, 
+        description: description,
+        active_exercise: true
+      }
+      
+      setState({
+        ...state,
+        newExercise
+      });
+      */
     })
    }
   
@@ -58,5 +72,5 @@ export default function useApplicationData() {
    
    
 
-  return {state}
+  return {state,addUser,addExercise,addWorkout,addDateWorkout}
 }
