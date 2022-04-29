@@ -3,7 +3,5 @@ CREATE TABLE exercises (
     id SERIAL PRIMARY KEY NOT NULL,
     type VARCHAR (225) NOT NULL,
     description TEXT,
-    reps INTEGER NOT NULL DEFAULT 0,
-    weight DECIMAL NOT NULL DEFAULT 0,
     active_exercise BOOLEAN DEFAULT TRUE
 );

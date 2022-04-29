@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useContext,useState,useEffect} from 'react';
 import AddIcon from '@material-ui/icons/Add';
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import DayListItem from './DayListItem';
 import { makeStyles, Paper, Box, Typography, Fab } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -8,8 +8,8 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
 import EditIcon from '@material-ui/icons/Edit';
-
-
+import ExerciseContext from './ExerciseContext';
+import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes, getTypeExercise} from "../helpers/selectors";
 
 const useStyles = makeStyles((theme) => ({
   date: {
@@ -51,28 +51,57 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// const dayEx = [
+//   {
+//     type: "Deadlift",
+//     id: 1,
+//     sets: [
+//       {
+//         reps: 10,
+//         weight: 100
+//       }
+//     ]
+//   },
+//   {
+//     type: "Bench Press",
+//     id: 2,
+//     sets: [
+//       {
+//         reps: 10,
+//         weight: 80
+//       },
+//       {
+//         reps: 10,
+//         weight: 80
+//       }
+//     ]
+//   }
+// ]
+
 const dayEx = [
   {
     type: "Deadlift",
     id: 1,
     sets: [
       {
-        reps: 10,
-        weight: 100
-      }
-    ]
-  },
-  {
-    type: "Bench Press",
-    id: 2,
-    sets: [
-      {
-        reps: 10,
-        weight: 80
+        reps: 5,
+        weight: 180
       },
       {
-        reps: 10,
-        weight: 80
+        reps: 5,
+        weight: 180
+      },
+      {
+        reps: 5,
+        weight: 190
+      },
+      {
+        reps: 5,
+        weight: 190
+      },
+      {
+        reps: 2,
+        weight: 200
       }
     ]
   }
@@ -82,29 +111,70 @@ const dayEx = [
 function Day(props) {
 
   const classes = useStyles();
+  const params = useParams();
+  let emptyRoom = false;
+  console.log("params", params.date)
+  const objDate = new Date(params.date);
+  console.log("obj params date", objDate.toISOString());
+  //const [repType, setRepType] = useState([]);
+  const {exercises, setExercises, day2, setDay2,state} = useContext(ExerciseContext);
+  const dailyWorkout = getAllWorkoutsForDay(state, objDate.toISOString());
+  const getExerTypes = function(workoutD) {
+    const result = {};
+    workoutD.map((item) => { 
+      if(!result[item.exercises_id]) {
+        result[item.exercises_id] = {
+          type: getTypeExercise(state, item),
+          id: item.exercises_id,
+          sets: []
+        };
+      }
 
-  const exList = dayEx.map((ex) =>{
-    const setList = ex.sets.map((set, index) => <DayListItem key={index} {...set} />)
+      result[item.exercises_id].sets.push(item)
+    })
+    return Object.values(result);
+  }
+  console.log("daily workout", dailyWorkout);
+  const dayExercise = getExerTypes(dailyWorkout);
+  console.log("day exercises", dayExercise);
+ if(dayExercise.length < 1) {
+   emptyRoom = true;
+ }
+   
+  
+  const exList = dayExercise.map((ex) =>{
+    const setList = ex.sets.map((set, index) => <DayListItem key={index} index={index +1} {...set} />)
     return (<div key={ex.id}><h4>{ex.type}</h4>{setList}</div>)
   })
+
+  
+
+  console.log("day2:", day2);
 
   return (
     <section className="day">
       <Nav />
 
       <div className={classes.date} >
+        <Link to="/back">
         <ArrowBackIosIcon />
-        <h3>Thurdsday April 28th, 2022</h3>
+        </Link>
+        <h3>{objDate.toISOString().slice(0,10)}</h3>
+        
+        <Link to="/empty">
         <ArrowForwardIosIcon />
+        </Link>
       </div>
       
-      {/* <Paper>
-      <div className={classes.workout} >
-        {exList}
-      </div>
-      </Paper> */}
+      {emptyRoom === true && <div className={classes.root}>
+        <Paper className={classes.paper} elevation={5}>
+          <Box className={classes.box} p={1}>
+            <Typography className={classes.text}> NO WORKOUT RECORDED</Typography>
+          </Box>
+        </Paper>
+      </div>}
 
-      <div className={classes.root}>
+      {emptyRoom === false && <div className={classes.root}>
         <Paper className={classes.paper} elevation={5}>
           <Box className={classes.box} p={1}>
             <Typography className={classes.text} >{exList}</Typography>
@@ -113,10 +183,12 @@ function Day(props) {
             </div>
           </Box>
         </Paper>
-      </div>
+      </div>}
+
+      
 
       <div className={classes.addExc}>
-        <Link to="/exercises">
+        <Link to={`/exercises/${params.date}`}>
           <Fab size="medium" aria-label="add" className={classes.addButton}>
             <AddIcon />
           </Fab>

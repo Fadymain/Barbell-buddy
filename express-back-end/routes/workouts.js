@@ -33,20 +33,20 @@ module.exports = (db) => {
   });
 
   router.post("/add", (req, res) => {
-    const {user_id, day_at, exercise_id} = req.body
+    const {user_id, day_at, exercise_id, reps, weight} = req.body
      if (day_at){
-      db.query(`INSERT INTO workouts (user_id, day_at, exercise_id) VALUES ($1, $2, $3) RETURNING *;`, [user_id, day_at, exercise_id])
+      db.query(`INSERT INTO workouts (user_id, day_at, exercise_id, reps, weight) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [user_id, day_at, exercise_id, reps, weight])
         .then(data => {
-          const regWorkout = data.rows;
+          const regWorkout = data.rows[0];
           console.log("created workout", regWorkout);
-          res.status(204).json({});
+          res.status(200).json({regWorkout: regWorkout});
         });
      } else {
-      db.query(`INSERT INTO workouts (user_id, exercise_id) VALUES ($1, $2) RETURNING *;`, [user_id, exercise_id])
+      db.query(`INSERT INTO workouts (user_id, exercise_id, reps, weight) VALUES ($1, $2, $3, $4) RETURNING *;`, [user_id, exercise_id, reps, weight])
       .then(data => {
-        const regWorkout = data.rows;
+        const regWorkout = data.rows[0];
         console.log("created workout", regWorkout);
-        res.status(204).json({});
+        res.status(200).json({regWorkout: regWorkout});
       });
      }
     
@@ -54,9 +54,9 @@ module.exports = (db) => {
   });
 
   router.post("/update", (req, res) => {
-    const {user_id, day_at, exercise_id} = req.body
+    const {user_id, day_at, exercise_id, reps, weight} = req.body
      if (day_at){
-      db.query(`UPDATE workouts SET exercise_id = $1 WHERE user_id = $2 AND day_at = $3`, [exercise_id,user_id, day_at])
+      db.query(`UPDATE workouts SET exercise_id = $1, reps = $2, weight = $3 WHERE user_id = $4 AND day_at = $5`, [exercise_id, reps, weight,user_id, day_at])
         .then(data => {
           const regWorkout = data.rows;
           console.log("updated workout", regWorkout);

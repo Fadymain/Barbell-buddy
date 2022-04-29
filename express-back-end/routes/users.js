@@ -37,9 +37,9 @@ module.exports = (db) => {
 
     db.query(`INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *;`, [name, email, password])
       .then(data => {
-        const regUser = data.rows;
+        const regUser = data.rows[0];
         console.log("created new user", regUser);
-        res.status(204).json({});
+        res.status(200).json({regUser: regUser});
       });
 
 
