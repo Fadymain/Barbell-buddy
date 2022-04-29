@@ -10,6 +10,7 @@ import { makeStyles, Fab, Typography } from '@material-ui/core';
 // import CustomizedDialogs from './FormDialog';
 import FormDialog from './FormDialog';
 import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes, getTypeExercise} from "../helpers/selectors";
+
 /*
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
@@ -99,9 +100,11 @@ function ExercisesList(props) {
     setExerciseType("");
   }
 
-  const createExercise = function() {
-    props.addExercise(exerciseType)
+  const createExercise = function(exercise) {
+    addExercise(exerciseType)
+    reset();
   }
+
 
   return (
     <section>
@@ -131,10 +134,12 @@ function ExercisesList(props) {
       {/* </form> */}
 
       <FormDialog>
-      <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
+     {/* <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
         <label htmlFor="exercise"><Typography>Add Exercise</Typography></label>
         <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
-      </form>
+        <button onClick={() => console.log("exerciseType", exerciseType)}>Add Exercise</button>
+      </form> */}
+      
       </FormDialog>
 
       <BottomNav />
