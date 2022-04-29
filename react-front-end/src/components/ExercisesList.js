@@ -9,7 +9,7 @@ import { makeStyles, Fab, Typography } from '@material-ui/core';
 // import AddIcon from '@material-ui/icons/Add';
 // import CustomizedDialogs from './FormDialog';
 import FormDialog from './FormDialog';
-import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes, getTypeExercise} from "../helpers/selectors";
+import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes, getTypeExercise, getUniqueExercise} from "../helpers/selectors";
 
 /*
 import React, { useContext, useState } from 'react';
@@ -68,14 +68,16 @@ const useStyles = makeStyles((theme) => ({
 function ExercisesList(props) {
 
   const classes = useStyles();
-  const params = useParams();
-  console.log("params", params.date)
-  const ObjExerciseDays = new Date(params.date);
-  console.log("ObjExerciseDays", ObjExerciseDays.toISOString());
+  //const params = useParams();
+  //console.log("params", params.date)
+  //const ObjExerciseDays = new Date(params.date);
+  //console.log("ObjExerciseDays", ObjExerciseDays.toISOString());
   // const { id } = useParams();
   const {exercises, setExercises, day2, setDay2, state, addExercise} = useContext(ExerciseContext);
  
   const [ exerciseType, setExerciseType ] = useState("");
+  const currentDayExercise = getUniqueExercise(state);
+  /*
   const currentDayExercise = getAllWorkoutsForDay(state, ObjExerciseDays.toISOString());
   const getExerTypes = function(workoutD) {
     const result = {};
@@ -96,6 +98,7 @@ function ExercisesList(props) {
   console.log("currentDayExercise", currentDayExercise);
   const currentUserExercises = getExerTypes(currentDayExercise);
   console.log("currentUserExercises", currentUserExercises);
+  */
   const reset = function() {
     setExerciseType("");
   }
@@ -120,7 +123,7 @@ function ExercisesList(props) {
 
       <h1 style={{marginTop: 0}}>Select Exercise:</h1> 
       <div>
-        {currentUserExercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
+        {currentDayExercise.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
       {/* <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} > */}

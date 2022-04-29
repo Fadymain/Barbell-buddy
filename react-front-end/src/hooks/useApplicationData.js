@@ -78,16 +78,16 @@ export default function useApplicationData() {
     })
    }
   
-  const addDateWorkout = function(user_id, day_at, exercise_id, reps, weight) {
+  const addDateWorkout = function(users_id, day_at, exercises_id, reps, weight) {
     
-    return axios.post(`http://localhost:8080/api/workouts/add`,{user_id, day_at, exercise_id, reps, weight})
+    return axios.post(`http://localhost:8080/api/workouts/add`,{users_id, day_at, exercises_id, reps, weight})
     .then((data) => {
       const newWorkoutId = data.data.regWorkout.id;
       const newWorkout = {
         id: newWorkoutId,
-        user_id: user_id, 
+        users_id: users_id, 
         day_at: data.data.regWorkout.day_at, 
-        exercise_id: exercise_id,
+        exercises_id: exercises_id,
         reps: reps,
         weight: weight
       }
@@ -101,18 +101,20 @@ export default function useApplicationData() {
         workouts
       }));
 
+    }).catch((error) => {
+      console.log("error_message", error.message);
     })
    }
-  const addWorkout = function(user_id, exercise_id, reps, weight) {
+  const addWorkout = function(users_id, exercises_id, reps, weight) {
     
-    return axios.post(`http://localhost:8080/api/workouts/add`,{user_id, exercise_id, reps, weight})
+    return axios.post(`http://localhost:8080/api/workouts/add`,{users_id, exercises_id, reps, weight})
     .then((data) => {
       const newWorkoutId = data.data.regWorkout.id;
       const newWorkout = {
         id: newWorkoutId,
-        user_id: user_id, 
+        users_id: users_id, 
         day_at: data.data.regWorkout.day_at, 
-        exercise_id: exercise_id,
+        exercises_id: exercises_id,
         reps: reps,
         weight: weight
       }
