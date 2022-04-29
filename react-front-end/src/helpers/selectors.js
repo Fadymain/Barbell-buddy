@@ -1,13 +1,13 @@
 //getExercisesForDay get exercises done for the day by the user 
 //getExercisesForUser gets exercises selected by the user
 
-
+//getworkouts for a specific user regardless of date.
 
 export function getWorkoutsForUser(state, userID) {
   const userExercise = [];
   for(const userWorkouts in state.workouts) {
-    if(state.workouts[userWorkouts].user_id === userID) {
-      userExercise.push(state.workouts[userWorkouts].user_id);
+    if(state.workouts[userWorkouts].users_id === userID) {
+      userExercise.push(state.workouts[userWorkouts].users_id);
     }
   }
   return userExercise;
@@ -16,12 +16,13 @@ export function getWorkoutsForUser(state, userID) {
 
 }
 
-export function getAllWorkoutsForDay(state, dayDate) {
+// get workouts for specific date and user id
+export function getAllWorkoutsForDay(state, dayDate, userID = 1) {
   const completedExercise = [];
   console.log("example of state", state.workouts);
   for(const workout in state.workouts) {
     console.log("specific workout", state.workouts[workout].day_at);
-    if(compareDates(state.workouts[workout].day_at,dayDate)) {
+    if(compareDates(state.workouts[workout].day_at,dayDate) && (state.workouts[workout].users_id === userID)) {
       console.log("passed workouts", state.workouts[workout]);
       completedExercise.push(state.workouts[workout]);
     }
@@ -54,6 +55,19 @@ export function getAllExerciseTypes(state,exerciseTypes) {
   };
 
   return exerciseContents;
+}
+
+export function getTypeExercise(state, workoutD) {
+  console.log("workoutd", workoutD);
+  const exerciseID = workoutD.exercises_id;
+  const exerciseCollection = state.exercises;
+  console.log("state in getTypeExercise", state);
+  console.log("exercise collection", exerciseCollection);
+  const exerciseItem = exerciseCollection[exerciseID - 1];
+   console.log("exerciseItem",exerciseItem);
+  const exerciseResult = exerciseItem.type;
+
+  return exerciseResult;
 }
 
 export function compareDates (day1, day2) {

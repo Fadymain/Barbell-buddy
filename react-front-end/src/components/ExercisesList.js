@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExerciseContext from './ExerciseContext';
 import "./ExerciseList.css"
@@ -9,6 +9,7 @@ import { makeStyles, Fab, Typography } from '@material-ui/core';
 // import AddIcon from '@material-ui/icons/Add';
 // import CustomizedDialogs from './FormDialog';
 import FormDialog from './FormDialog';
+import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes, getTypeExercise} from "../helpers/selectors";
 /*
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
@@ -66,10 +67,15 @@ const useStyles = makeStyles((theme) => ({
 function ExercisesList(props) {
 
   const classes = useStyles();
+  const params = useParams();
+  console.log("params", params.date)
+  const ObjExerciseDays = new Date(params.date);
+  console.log("ObjExerciseDays", ObjExerciseDays.toISOString());
   // const { id } = useParams();
-  const {exercises} = useContext(ExerciseContext);
-
+  const {exercises, setExercises, day2, setDay2, state, addExercise} = useContext(ExerciseContext);
+ 
   const [ exerciseType, setExerciseType ] = useState("");
+  const currentDayExercise = 
 
   const reset = function() {
     setExerciseType("");

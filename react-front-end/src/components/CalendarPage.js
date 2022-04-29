@@ -35,7 +35,7 @@ function CalendarPage() {
 
       <Calendar allowPartialRange={false} onChange={setDay2} value={day2} />
       
-      <Link to="/day">
+      <Link to={`/day/${day2}`}>
         <Fab size="large" variant="extended" className={classes.dateButton} >
           SELECT DATE
         </Fab>

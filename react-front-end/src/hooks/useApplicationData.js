@@ -43,7 +43,7 @@ export default function useApplicationData() {
       [newUserID]: newUser
      }
      setState(({
-      ...state.users,
+      ...state,
       users
     }));
 

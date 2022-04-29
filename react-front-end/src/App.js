@@ -16,13 +16,7 @@ import Empty from './components/Empty';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import Back from './components/Back';
 
-const exercisesData = [
-  { type: "Deadlifts", id: 1},
-  { type: "Squats", id: 2 },
-  { type: "Bench Press", id: 3 },
-  { type: "Lunges", id: 4 },
-  { type: "Overhead Press", id: 5 },
-];
+const exercisesData = [];
 
 const App = () => {
 
@@ -75,9 +69,9 @@ const App = () => {
             <Route path="/" element={<IntroScreen />} />
             <Route path="/intro" element={<IntroScreen />} />
             <Route path="/empty" element={<Empty />} />
-            <Route path="/day" element={<Day />} />
+            <Route path="/day/:date" element={<Day />} />
             <Route path="/back" element={<Back />} />
-            <Route path="/exercises" element={<ExercisesList />} />
+            <Route path="/exercises/:date" element={<ExercisesList />} />
             <Route path="/counter/:id" element={<Counter />} />
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/login" element={<Login />} />
