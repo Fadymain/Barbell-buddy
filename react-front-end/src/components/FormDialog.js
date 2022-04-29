@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -8,7 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 // import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-
+import ExerciseContext from './ExerciseContext';
 
 const useStyles = makeStyles((theme) => ({
   addButton: {
@@ -26,19 +26,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function FormDialog() {
+export default function FormDialog(props) {
 
   const classes = useStyles();
-
-  const [open, setOpen] = React.useState(false);
-
+  const {state, addExercise} = useContext(ExerciseContext);
+  const [open, setOpen] = useState(false);
+  const [exerciseType, setExerciseType] = useState("");
   const handleClickOpen = () => {
     setOpen(true);
+    
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+  const handleCreate = (e) => {
+    e.preventDefault();
+    console.log("successfully adding exercise", exerciseType);
+    addExercise(exerciseType);
+    setExerciseType("");
+    setOpen(false);
+  }
 
   return (
     <div>
@@ -56,28 +64,19 @@ export default function FormDialog() {
 
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogContent>
-          <DialogContentText>
-            Add an exercise to save it to your list of exercises
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Exercise name"
-            type="text"
-            fullWidth
-          />
+        <form autoComplete='off' onSubmit={handleCreate} className={classes.addEx} id="myform" >
+
+        <input type="exercise" placeholder='Add exercise' id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
+        <button onClick={() => console.log("exerciseType", exerciseType)}>Add Exercise</button>
+      </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+        <Button variant="contained" onClick={() => setOpen(false)}>
             Cancel
           </Button>
-          
-          {/* Add exercise to db here?? */}
-          <Button onClick={handleClose} color="primary">
-            Add Exercise
+          <Button variant="contained" type="submit" form="myform">
+            Submit
           </Button>
-
         </DialogActions>
       </Dialog>
     </div>

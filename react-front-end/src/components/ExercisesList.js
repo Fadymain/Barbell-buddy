@@ -10,6 +10,7 @@ import { makeStyles, Fab, Typography } from '@material-ui/core';
 // import CustomizedDialogs from './FormDialog';
 import FormDialog from './FormDialog';
 import {getWorkoutsForUser, getAllWorkoutsForDay, getAllExerciseTypes, getTypeExercise} from "../helpers/selectors";
+
 /*
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom"
@@ -75,15 +76,35 @@ function ExercisesList(props) {
   const {exercises, setExercises, day2, setDay2, state, addExercise} = useContext(ExerciseContext);
  
   const [ exerciseType, setExerciseType ] = useState("");
-  const currentDayExercise = 
+  const currentDayExercise = getAllWorkoutsForDay(state, ObjExerciseDays.toISOString());
+  const getExerTypes = function(workoutD) {
+    const result = {};
+    workoutD.map((item) => { 
+      if(!result[item.exercises_id]) {
+        result[item.exercises_id] = {
+          type: getTypeExercise(state, item),
+          id: item.exercises_id,
+          sets: []
+        };
+      }
 
+      result[item.exercises_id].sets.push(item)
+    })
+    return Object.values(result);
+  }
+
+  console.log("currentDayExercise", currentDayExercise);
+  const currentUserExercises = getExerTypes(currentDayExercise);
+  console.log("currentUserExercises", currentUserExercises);
   const reset = function() {
     setExerciseType("");
   }
 
-  const createExercise = function() {
-    props.addExercise(exerciseType)
+  const createExercise = function(exercise) {
+    addExercise(exerciseType)
+    reset();
   }
+
 
   return (
     <section>
@@ -99,7 +120,7 @@ function ExercisesList(props) {
 
       <h1 style={{marginTop: 0}}>Select Exercise:</h1> 
       <div>
-        {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
+        {currentUserExercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
       {/* <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} > */}
@@ -113,10 +134,12 @@ function ExercisesList(props) {
       {/* </form> */}
 
       <FormDialog>
-      <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
+     {/* <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} >
         <label htmlFor="exercise"><Typography>Add Exercise</Typography></label>
         <input type="exercise" id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
-      </form>
+        <button onClick={() => console.log("exerciseType", exerciseType)}>Add Exercise</button>
+      </form> */}
+      
       </FormDialog>
 
       <BottomNav />
