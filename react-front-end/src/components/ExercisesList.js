@@ -75,8 +75,26 @@ function ExercisesList(props) {
   const {exercises, setExercises, day2, setDay2, state, addExercise} = useContext(ExerciseContext);
  
   const [ exerciseType, setExerciseType ] = useState("");
-  const currentDayExercise = 
+  const currentDayExercise = getAllWorkoutsForDay(state, ObjExerciseDays.toISOString());
+  const getExerTypes = function(workoutD) {
+    const result = {};
+    workoutD.map((item) => { 
+      if(!result[item.exercises_id]) {
+        result[item.exercises_id] = {
+          type: getTypeExercise(state, item),
+          id: item.exercises_id,
+          sets: []
+        };
+      }
 
+      result[item.exercises_id].sets.push(item)
+    })
+    return Object.values(result);
+  }
+
+  console.log("currentDayExercise", currentDayExercise);
+  const currentUserExercises = getExerTypes(currentDayExercise);
+  console.log("currentUserExercises", currentUserExercises);
   const reset = function() {
     setExerciseType("");
   }
@@ -99,7 +117,7 @@ function ExercisesList(props) {
 
       <h1 style={{marginTop: 0}}>Select Exercise:</h1> 
       <div>
-        {exercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
+        {currentUserExercises.map(item => <div className={classes.excButton} key={item.id}> <Link style={{ textDecoration: "none" }} to={`/counter/${item.id}`} > <button className="button-29" >{item.type}</button></Link></div>)}
       </div>
 
       {/* <form autoComplete='off' onSubmit={event => event.preventDefault()} className={classes.addEx} > */}
