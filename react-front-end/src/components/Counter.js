@@ -46,11 +46,13 @@ function Counter(props) {
   const [reps, setReps] = useState(0);
   const [weight, setWeight] = useState(0);
   const [completed, updateCompleted] = useState([]);
-  const {exercises} = useContext(ExerciseContext);
+  const {exercises,day2, setDay2, state,addDateWorkout} = useContext(ExerciseContext);
 
   const params = useParams();
-  const exercise = exercises.find((item) => item.id == params.id)
-
+  console.log("state exercises", state.exercises);
+  
+  const exercise = state.exercises.find((item) => item.id == params.id)
+  console.log("chosen exercise", exercise);
   const classes = useStyles();
 
   const updateRep = function (rep, weight) {
@@ -65,6 +67,13 @@ function Counter(props) {
   const completeSet = function (set) {
     // debugger
     updateCompleted([...completed, set])
+  }
+  const addCompleteEx = function() {
+    const userID = 1;
+    for (const set of completed) {
+      addDateWorkout(userID, day2, exercise.id, set.reps, set.weight);
+     
+    }
   }
 
 
@@ -116,9 +125,11 @@ function Counter(props) {
         </div>
 
         <div className="saveButton" style={{ position: "fixed", right: "10px", bottom: "70px", }} >
-          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton} onClick={() => window.location.href = '/day'}>
+           <Link to={`/day/${day2}`} >
+          <Fab variant="extended" size="small" aria-label="SAVE" className={classes.saveButton} onClick={() => addCompleteEx() } >
             <DoneIcon /> SAVE
           </Fab>
+          </Link>
         </div>
 
       </div>

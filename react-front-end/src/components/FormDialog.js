@@ -67,14 +67,14 @@ export default function FormDialog(props) {
         <form autoComplete='off' onSubmit={handleCreate} className={classes.addEx} id="myform" >
 
         <input type="exercise" placeholder='Add exercise' id="exercise" name="exercise" value={exerciseType} onChange={(event) => setExerciseType(event.target.value)} />
-        <button onClick={() => console.log("exerciseType", exerciseType)}>Add Exercise</button>
+        
       </form>
         </DialogContent>
         <DialogActions>
-        <Button variant="contained" onClick={() => setOpen(false)}>
+        <Button  color="primary" onClick={() => setOpen(false)}>
             Cancel
           </Button>
-          <Button variant="contained" type="submit" form="myform">
+          <Button onClick={handleClose} color="primary" type="submit" form="myform">
             Submit
           </Button>
         </DialogActions>
