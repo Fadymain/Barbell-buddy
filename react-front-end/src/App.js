@@ -21,7 +21,7 @@ const exercisesData = [];
 const App = () => {
 
   const {state,addUser,addExercise,addWorkout,addDateWorkout} = useApplicationData();
-  const [exercises, setExercises] = useState(exercisesData);
+  const [exercises, setExercises] = useState(state.exercises);
   const [day2, setDay2] = useState(new Date());
   const [addNewWorkout, setNewWorkout] = useState("");
 

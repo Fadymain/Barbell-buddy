@@ -19,11 +19,11 @@ export function getWorkoutsForUser(state, userID) {
 // get workouts for specific date and user id
 export function getAllWorkoutsForDay(state, dayDate, userID = 1) {
   const completedExercise = [];
-  console.log("example of state", state.workouts);
+  
   for(const workout in state.workouts) {
-    console.log("specific workout", state.workouts[workout].day_at);
+    
     if(compareDates(state.workouts[workout].day_at,dayDate) && (state.workouts[workout].users_id === userID)) {
-      console.log("passed workouts", state.workouts[workout]);
+      
       completedExercise.push(state.workouts[workout]);
     }
   }
@@ -58,13 +58,11 @@ export function getAllExerciseTypes(state,exerciseTypes) {
 }
 
 export function getTypeExercise(state, workoutD) {
-  console.log("workoutd", workoutD);
+  
   const exerciseID = workoutD.exercises_id;
   const exerciseCollection = state.exercises;
-  console.log("state in getTypeExercise", state);
-  console.log("exercise collection", exerciseCollection);
+  
   const exerciseItem = exerciseCollection[exerciseID - 1];
-   console.log("exerciseItem",exerciseItem);
   const exerciseResult = exerciseItem.type;
 
   return exerciseResult;
@@ -79,4 +77,20 @@ export function compareDates (day1, day2) {
   }
   return false;
 
+}
+
+
+// getUniqueExercise unique exercises in db
+
+export function getUniqueExercise (state) {
+  const exerciseList = [];
+  const objectExerciseList = [];
+  for(const elm in state.exercises) {
+    if (!exerciseList.includes(state.exercises[elm].type)) {
+      exerciseList.push(state.exercises[elm].type);
+      objectExerciseList.push(state.exercises[elm]);
+    }
+  }
+  console.log("uniqueExercises",objectExerciseList);
+  return objectExerciseList;
 }
