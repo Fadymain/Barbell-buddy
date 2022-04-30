@@ -107,7 +107,7 @@ function Counter(props) {
           </div>
           {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
           {/* <button onClick={() => completeSet({ reps, weight })} className="button-72" >SET DONE</button> */}
-          <button onClick={() => completeSet({ reps, weight })} className="set-button" >SET DONE</button>
+          <button onClick={() => completeSet({ reps, weight })} className="button-29" >SET DONE</button>
         </form>
 
         <div className={classes.root}>
