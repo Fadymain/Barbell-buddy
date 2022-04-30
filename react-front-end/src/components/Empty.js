@@ -8,7 +8,6 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BottomNav from './BottomNav';
 import Nav from './Nav';
-// import EditIcon from '@material-ui/icons/Edit';
 
 
 
@@ -26,17 +25,13 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   paper: {
-    // border: "solid",
-    // borderRadius: 25,
     backgroundColor: "lightgray"
   },
   box: {
     // border: "solid"
   },
   text: {
-    paddingTop: 10,
-    // paddingLeft: 10,
-    // textAlign: "left"
+    paddingTop: 10
   },
   addExc: {
     display: "flex",
@@ -96,15 +91,9 @@ function Empty(props) {
       <div className={classes.date} >
         <ArrowBackIosIcon href="/back" onClick={() => window.location.href = '/back'} />
         <h3>Thurdsday April 28th, 2022</h3>
-        {/* <h3>Wednesday April 27th, 2022</h3> */}
         <ArrowForwardIosIcon onClick={() => window.location.href = '/empty'} />
       </div>
       
-      {/* <Paper>
-      <div className={classes.workout} >
-        {exList}
-      </div>
-      </Paper> */}
 
       <div className={classes.root}>
         <Paper className={classes.paper} elevation={5}>

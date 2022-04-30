@@ -38,31 +38,11 @@ const App = () => {
     },
   });
 
-  // fetchData = () => {
-  //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-  //   .then((response) => {
-  //     // handle success
-  //     console.log(response.data) // The entire response from the Rails API
 
-  //     console.log(response.data.message) // Just the message
-  //     this.setState({
-  //       message: response.data.message
-  //     });
-  //   }) 
-  // }
-  /*
-  const createExercise = function(type) {
-    addExercise("bench press");
-  }
-  addExercise("bench press");
-  */
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
-      {/* <button onClick={this.fetchData} > */}
-      {/* Fetch Data
-        </button>     */}
-      {/* <Button/>     */}
+      
       <ExerciseContext.Provider value={data}>
         <Router>
           <Routes>

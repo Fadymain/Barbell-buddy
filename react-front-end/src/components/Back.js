@@ -26,8 +26,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   paper: {
-    // border: "solid",
-    // borderRadius: 25,
     backgroundColor: "lightgray"
   },
   box: {
@@ -99,34 +97,7 @@ const dayEx = [
   }
 ]
 
-// const dayEx = [
-//   {
-//     type: "Deadlift",
-//     id: 1,
-//     sets: [
-//       {
-//         reps: 5,
-//         weight: 180
-//       },
-//       {
-//         reps: 5,
-//         weight: 180
-//       },
-//       {
-//         reps: 5,
-//         weight: 190
-//       },
-//       {
-//         reps: 5,
-//         weight: 190
-//       },
-//       {
-//         reps: 1,
-//         weight: 200
-//       }
-//     ]
-//   }
-// ]
+
 
 
 function Back(props) {
@@ -144,17 +115,13 @@ function Back(props) {
 
       <div className={classes.date} >
         <ArrowBackIosIcon onClick={() => window.location.href = '/back'} />
-        {/* <h3>Thurdsday April 28th, 2022</h3> */}
+        
         <h3>Wednesday April 27th, 2022</h3>
-        {/* <h3>Tuesday April 26th, 2022</h3> */}
+        
         <ArrowForwardIosIcon onClick={() => window.location.href = '/empty'} />
       </div>
       
-      {/* <Paper>
-      <div className={classes.workout} >
-        {exList}
-      </div>
-      </Paper> */}
+      
 
       <div className={classes.root}>
         <Paper className={classes.paper} elevation={5}>

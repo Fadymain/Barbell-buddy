@@ -4,8 +4,7 @@ import "./Counter.css"
 
 import { Link, useParams } from "react-router-dom"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-// import EditSharpIcon from '@material-ui/icons/EditSharp';
-// import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+
 
 import ExerciseContext from './ExerciseContext';
 import BottomNav from './BottomNav';
@@ -16,7 +15,6 @@ import DoneIcon from '@material-ui/icons/Done';
 
 const useStyles = makeStyles((theme) => ({
   saveButton: {
-    // margin: 10,
     color: "black",
     backgroundColor: "LimeGreen"
   },
@@ -24,13 +22,10 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: "auto",
       width: "70%",
-      height: "auto",
-      // textAlign: "left",
-      // justifyContent: "center"
+      height: "auto"
     }
   },
   sets: {
-    // borderRadius: 25,
     backgroundColor: "lightgray",
     display: "flex",
     justifyContent: "center"
@@ -56,7 +51,6 @@ function Counter(props) {
   const classes = useStyles();
 
   const updateRep = function (rep, weight) {
-    // debugger
     if (!rep && !weight) {
       return;
     }
@@ -65,7 +59,6 @@ function Counter(props) {
   }
 
   const completeSet = function (set) {
-    // debugger
     updateCompleted([...completed, set])
   }
   const addCompleteEx = function() {
@@ -105,8 +98,6 @@ function Counter(props) {
               <input size="5" type="text" id="reps" name="reps" onChange={(event) => updateRep(event.target.value, weight)} />
             </div>
           </div>
-          {/* <input onClick={() => completeSet({reps, weight})} type="submit" value="SET COMPLETED"/> */}
-          {/* <button onClick={() => completeSet({ reps, weight })} className="button-72" >SET DONE</button> */}
           <button onClick={() => completeSet({ reps, weight })} className="button-29" >SET DONE</button>
         </form>
 

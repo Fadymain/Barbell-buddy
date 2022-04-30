@@ -5,7 +5,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-// import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ExerciseContext from './ExerciseContext';
@@ -50,10 +49,6 @@ export default function FormDialog(props) {
 
   return (
     <div>
-      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Add Exercise
-      </Button> */}
-      {/* style={{padding: 50}} */}
 
       <div className={classes.addEx} >
         <Fab size="small" className={classes.addButton} onClick={handleClickOpen} >

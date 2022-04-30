@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
     bottom: "0",
     width: "100%",
     backgroundColor: "DeepSkyBlue",
-    // color: "black",
    }
 }));
 

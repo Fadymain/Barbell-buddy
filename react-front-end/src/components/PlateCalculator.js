@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   paper: {
-    // borderRadius: 25,
     backgroundColor: "lightgray"
   },
   text: {
@@ -33,7 +32,6 @@ function PlateCalculator(props) {
   const [calc, setCalc] = useState({});
 
   const completeCalc = function(weight) {
-    // debugger
     setCalc(plateCalculator.calculate(weight))
   }
 
@@ -62,13 +60,7 @@ function PlateCalculator(props) {
           <input size="4" type="text" id="weight" name="weight" onChange={(event) => setWeight(event.target.value)} value={weight} /><br/>
           <label htmlFor="barbell">BARBELL:</label>
           <input size="2" type="text" id="barbell" name="barbell" placeholder="45"/><br/>
-          {/* <div>BARBELL - DEFAULT 45lbs</div> */}
-            {/* <img
-              onClick={() => setCalc(plateCalculator.calculate(weight))}
-              src="images/calculate.png"
-              className="save"
-              alt="save"
-            /> */}
+         
             <button onClick={() => setCalc(plateCalculator.calculate(weight))} class='calc-button' >Calculate</button>
         </form>
       </div>

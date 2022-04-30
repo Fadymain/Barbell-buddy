@@ -31,16 +31,7 @@ export function getAllWorkoutsForDay(state, dayDate, userID = 1) {
 }
 
 export function getAllExerciseTypes(state,exerciseTypes) {
-  /*
-  const exercises = [];
-
-  for(const exerciseInfo in state.exercises) {
-    if(exerciseInfo.id === dayDate) {
-      exercises[...workout]
-    }
-  }
-  return exercises;
-*/
+  
   if (!exerciseTypes) {
     return null;
   }

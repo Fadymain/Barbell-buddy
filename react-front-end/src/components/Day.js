@@ -25,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   paper: {
-    // border: "solid",
-    // borderRadius: 25,
+
     backgroundColor: "lightgray"
   },
   box: {
@@ -51,32 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// const dayEx = [
-//   {
-//     type: "Deadlift",
-//     id: 1,
-//     sets: [
-//       {
-//         reps: 10,
-//         weight: 100
-//       }
-//     ]
-//   },
-//   {
-//     type: "Bench Press",
-//     id: 2,
-//     sets: [
-//       {
-//         reps: 10,
-//         weight: 80
-//       },
-//       {
-//         reps: 10,
-//         weight: 80
-//       }
-//     ]
-//   }
-// ]
+
 
 const dayEx = [
   {
@@ -116,7 +90,6 @@ function Day(props) {
   console.log("params", params.date)
   const objDate = new Date(params.date);
   console.log("obj params date", objDate.toISOString());
-  //const [repType, setRepType] = useState([]);
   const {exercises, setExercises, day2, setDay2,state} = useContext(ExerciseContext);
   const dailyWorkout = getAllWorkoutsForDay(state, objDate.toISOString());
   const getExerTypes = function(workoutD) {
